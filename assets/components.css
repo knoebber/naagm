@@ -1,0 +1,20 @@
+.simple-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 420px;
+    padding: 8px;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-wrapper.has-error input {
+    border: solid 1px var(--red);
+}
+
+.input-wrapper.has-error label {
+    color: var(--red);
+}
