@@ -18,3 +18,12 @@
 .input-wrapper.has-error label {
     color: var(--red);
 }
+
+.save-the-date {
+    padding: 35px;
+    margin: auto;
+}
+
+.home {
+    gap: 32px;
+}

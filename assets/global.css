@@ -25,6 +25,7 @@ html {
 
 h1 {
     font-size: var(--font-size-big);
+    text-align: center;
 }
 
 body {
@@ -56,10 +57,18 @@ nav {
 nav {
     display: flex;
     flex-direction: row-reverse;
+    gap: 7px;
 }
 
 input {
     border-radius: 3px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 @media (min-width: 800px) {

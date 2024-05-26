@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
     <.live_title suffix="">
-      <%= assigns[:page_title] || "Naagm" %>
+      <%= assigns[:page_title] || "NAAGM" %>
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
@@ -13,7 +13,10 @@
   </head>
   <body>
     <nav>
-    NAAGM
+      <a href="">home</a>
+      <a href="">about</a>
+      <a href="">rsvp</a>
+      <a href="">photos</a>
     </nav>
     <%= @inner_content %>
   </body>
