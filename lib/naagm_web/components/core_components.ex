@@ -290,6 +290,12 @@ defmodule NaagmWeb.CoreComponents do
     """
   end
 
+  def image(assigns) do
+    ~H"""
+    <image src={"https://d33j1my2155sn6.cloudfront.net/#{@path}"} />
+    """
+  end
+
   def show(js \\ %JS{}, selector) do
     JS.remove_class(js, "hidden", to: selector)
   end

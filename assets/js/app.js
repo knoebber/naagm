@@ -25,6 +25,7 @@ import "phoenix_html";
 import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
 import topbar from "../vendor/topbar";
+import s3Upload from "./s3_upload";
 
 const params = {
   _csrf_token: document
@@ -35,6 +36,7 @@ const params = {
 const liveSocket = new LiveSocket("/live", Socket, {
   hooks: {},
   params,
+  uploaders: { S3: s3Upload },
 });
 
 // Show progress bar on live navigation and form submits
@@ -50,5 +52,3 @@ liveSocket.connect();
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket;
-
-console.log("yo");
