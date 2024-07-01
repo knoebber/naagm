@@ -4,7 +4,8 @@ defmodule NaagmWeb.UploadLive do
 
   @region "us-west-2"
   @bucket "naagm"
-  defp make_key(client_name), do: "uploads/#{client_name}"
+  defp s3_url(), do: "https://#{@bucket}.s3-#{@region}.amazonaws.com"
+  defp make_s3_key(client_name), do: "uploads/#{client_name}"
 
   defp error_to_string(reason) do
     case reason do
@@ -20,12 +21,16 @@ defmodule NaagmWeb.UploadLive do
     {:ok,
      socket
      |> assign(:uploaded_files, [])
-     |> allow_upload(:content, accept: :any, max_entries: 3, external: &presign_upload/2)}
+     |> allow_upload(:content,
+       accept: ~w(.jpg .jpeg .webp .png),
+       max_entries: 10,
+       external: &presign_upload/2
+     )}
   end
 
   defp presign_upload(entry, socket) do
     uploads = socket.assigns.uploads
-    key = make_key(entry.client_name)
+    key = make_s3_key(entry.client_name)
 
     config =
       %{
@@ -33,7 +38,6 @@ defmodule NaagmWeb.UploadLive do
         access_key_id: Application.fetch_env!(:naagm, :aws_key_id),
         secret_access_key: Application.fetch_env!(:naagm, :aws_key_secret)
       }
-      |> dbg
 
     {:ok, fields} =
       S3.sign_form_upload(config, @bucket,
@@ -46,7 +50,7 @@ defmodule NaagmWeb.UploadLive do
     meta = %{
       uploader: "S3",
       key: key,
-      url: "http://#{@bucket}.s3-#{config.region}.amazonaws.com",
+      url: s3_url(),
       fields: fields
     }
 
@@ -55,6 +59,11 @@ defmodule NaagmWeb.UploadLive do
 
   @impl Phoenix.LiveView
   def handle_event("validate", _params, socket) do
+    {:noreply, socket}
+  end
+
+  @impl Phoenix.LiveView
+  def handle_event("save", _params, socket) do
     {:noreply, socket}
   end
 
@@ -78,11 +87,7 @@ defmodule NaagmWeb.UploadLive do
               <.live_img_preview entry={entry} />
               <figcaption><%= entry.client_name %></figcaption>
             </figure>
-
-            <%!-- entry.progress will update automatically for in-flight entries --%>
             <progress value={entry.progress} max="100"><%= entry.progress %>%</progress>
-
-            <%!-- a regular click event whose handler will invoke Phoenix.LiveView.cancel_upload/3 --%>
             <button
               type="button"
               phx-click="cancel-upload"
@@ -91,15 +96,11 @@ defmodule NaagmWeb.UploadLive do
             >
               &times;
             </button>
-
-            <%!-- Phoenix.Component.upload_errors/2 returns a list of error atoms --%>
             <%= for err <- upload_errors(@uploads.content, entry) do %>
               <p class="alert alert-danger"><%= error_to_string(err) %></p>
             <% end %>
           </article>
         <% end %>
-
-        <%!-- Phoenix.Component.upload_errors/1 returns a list of error atoms --%>
         <%= for err <- upload_errors(@uploads.content) do %>
           <p class="alert alert-danger"><%= error_to_string(err) %></p>
         <% end %>
