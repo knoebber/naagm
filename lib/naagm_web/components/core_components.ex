@@ -292,7 +292,7 @@ defmodule NaagmWeb.CoreComponents do
 
   def image(assigns) do
     ~H"""
-    <image src={"https://d33j1my2155sn6.cloudfront.net/#{@path}"} />
+    <image class={@class} src={"https://d33j1my2155sn6.cloudfront.net/#{@path}"} />
     """
   end
 

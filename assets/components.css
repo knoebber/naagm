@@ -24,9 +24,27 @@
     margin: auto;
 }
 
-.home-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.home-wrapper,
+.portrait-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portrait,
+.portrait-wrapper {
+    border-radius: 100%;
+}
+
+.portrait {
+    height: 500px;
+    width: 500px;
+}
+
+.portrait-wrapper {
+    height: 525px;
+    width: 525px;
+    border-style: dotted;
 }
 
 .image-grid {
@@ -44,4 +62,11 @@
 
 .home {
     gap: 32px;
+}
+
+@media (max-width: 400px) {
+    .portrait,
+    .portrait-wrapper {
+        height: 300px;
+    }
 }
