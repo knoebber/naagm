@@ -64,6 +64,22 @@
     gap: 32px;
 }
 
+.flash {
+    background-color: var(--white);
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.flash .error {
+    color: var(--red);
+}
+
+.flash-title {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (max-width: 400px) {
     .portrait,
     .portrait-wrapper {
