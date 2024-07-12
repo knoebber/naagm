@@ -20,7 +20,8 @@ defmodule NaagmWeb.Router do
 
     live_session :redirect_if_user_is_authenticated,
       on_mount: [{NaagmWeb.UserAuth, :redirect_if_user_is_authenticated}] do
-      live "/users/log_in", UserLoginLive, :new
+      live "/login", GuestLoginLive, :new
+      live "/admin/login", UserLoginLive, :new
     end
 
     post "/users/log_in", UserSessionController, :create

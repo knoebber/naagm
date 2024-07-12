@@ -6,7 +6,7 @@ endif
 all: deps create_db js compile assets migrate
 
 warnings:
-	mix compile --all-warnings
+	mix compile --all-warnings --warnings-as-errors --no-compile
 
 format:
 	mix format mix.exs "lib/**/*.{ex,exs}" "test/**/*.{ex,exs}"

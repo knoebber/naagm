@@ -9,7 +9,7 @@ defmodule NaagmWeb.UserSessionController do
   end
 
   defp create(conn, %{"user" => user_params}, info) do
-    %{"email" => email, "password" => password} = user_params
+    %{"email" => email, "password" => password, "from" => from} = user_params
 
     if user = Accounts.get_user_by_email_and_password(email, password) do
       conn
@@ -18,9 +18,8 @@ defmodule NaagmWeb.UserSessionController do
     else
       # In order to prevent user enumeration attacks, don't disclose whether the email is registered.
       conn
-      |> put_flash(:error, "Invalid email or password")
-      |> put_flash(:email, String.slice(email, 0, 160))
-      |> redirect(to: ~p"/users/log_in")
+      |> put_flash(:error, "invalid, please try again")
+      |> redirect(to: from)
     end
   end
 

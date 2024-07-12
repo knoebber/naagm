@@ -15,10 +15,12 @@
     <header>
       <.flash_group flash={@flash} />
       <nav>
-        <a href={~p"/"}>home</a>
-        <a href={~p"/about"}>about</a>
-        <a href={~p"/rsvp"}>rsvp</a>
-        <a href={~p"/photos"}>photos</a>
+        <%= if @current_user do %>
+          <a href={~p"/"}>home</a>
+          <a href={~p"/about"}>about</a>
+          <a href={~p"/rsvp"}>rsvp</a>
+          <a href={~p"/photos"}>photos</a>
+        <% end %>
       </nav>
     </header>
     <%= @inner_content %>

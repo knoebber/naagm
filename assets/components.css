@@ -80,6 +80,49 @@
     justify-content: space-between;
 }
 
+.guest-password-wrapper {
+    align-items: center;
+    background: white;
+    border-radius: 3px;
+    display: flex;
+    font-size: 18px;
+    justify-content: space-between;
+    padding: 3px;
+}
+
+.guest-password-wrapper.focused {
+    outline: solid 1px black;
+}
+
+.guest-password-wrapper input {
+    border: none;
+    flex: 1;
+    margin-left: 5px;
+    max-width: 170px;
+}
+
+.guest-password-wrapper input:focus {
+    outline: none;
+}
+
+.guest-password-wrapper button {
+    background: none;
+    border: none;
+}
+
+.guest-password-wrapper button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    justify-content: center;
+}
+
 @media (max-width: 400px) {
     .portrait,
     .portrait-wrapper {

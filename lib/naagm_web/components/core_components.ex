@@ -84,7 +84,7 @@ defmodule NaagmWeb.CoreComponents do
         phx-connected={hide("#js-server-error")}
         hidden
       >
-        pls w8 or refresh 🤷‍♀️
+        please wait 🤷‍♀️
       </.flash>
     </div>
     """

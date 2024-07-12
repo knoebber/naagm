@@ -26,6 +26,7 @@ import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
 import topbar from "../vendor/topbar";
 import s3Upload from "./s3_upload";
+import PasswordWrapper from "./password_wrapper";
 
 const params = {
   _csrf_token: document
@@ -34,7 +35,7 @@ const params = {
 };
 
 const liveSocket = new LiveSocket("/live", Socket, {
-  hooks: {},
+  hooks: { PasswordWrapper },
   params,
   uploaders: { S3: s3Upload },
 });
