@@ -6,6 +6,7 @@
     --orange: orange;
     --red: red;
     --white: #f8f8f8;
+    --blue: #0d47a1;
 }
 
 *,
@@ -63,6 +64,26 @@ nav {
 
 input {
     border-radius: 3px;
+}
+
+textarea,
+select,
+input,
+button,
+.button {
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.5rem;
+    border-radius: 3px;
+    box-shadow: none;
+    max-width: 100%;
+    display: inline-block;
+}
+textarea,
+select,
+input {
+    color: var(--black);
+    border: 1px solid var(--black);
 }
 
 section {

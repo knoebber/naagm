@@ -6,6 +6,14 @@
     padding: 8px;
 }
 
+.rsvp-form textarea {
+    width: 100%;
+}
+
+.rsvp-form input {
+    border-radius: 3px;
+}
+
 .input-wrapper {
     display: flex;
     justify-content: space-between;

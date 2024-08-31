@@ -104,6 +104,7 @@ defmodule NaagmWeb.CoreComponents do
       </.simple_form>
   """
   attr :for, :any, required: true, doc: "the datastructure for the form"
+  attr :class, :string, default: ""
   attr :as, :any, default: nil, doc: "the server side parameter to collect all input under"
 
   attr :rest, :global,
@@ -115,7 +116,7 @@ defmodule NaagmWeb.CoreComponents do
 
   def simple_form(assigns) do
     ~H"""
-    <.form :let={f} for={@for} as={@as} {@rest} class="simple-form">
+    <.form :let={f} for={@for} as={@as} {@rest} class={["simple-form", @class]}>
       <%= render_slot(@inner_block, f) %>
       <div :for={action <- @actions}>
         <%= render_slot(action, f) %>

@@ -37,6 +37,7 @@ defmodule NaagmWeb.Router do
       live "/rsvp", RSVPLive
       live "/photos", PhotosLive
       live "/about", AboutLive
+      live "/admin/guest", AdminGuestLive
     end
   end
 
