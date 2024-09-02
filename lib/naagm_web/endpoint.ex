@@ -11,7 +11,15 @@ defmodule NaagmWeb.Endpoint do
     same_site: "Lax"
   ]
 
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  socket "/live", Phoenix.LiveView.Socket,
+    websocket: [
+      connect_info: [session: @session_options],
+      check_origin: [
+        "http://localhost:4000",
+        "https://anna-nicolas.com",
+        "https://www.anna-nicolas.com"
+      ]
+    ]
 
   # Serve at "/" the static files from "priv/static" directory.
   #

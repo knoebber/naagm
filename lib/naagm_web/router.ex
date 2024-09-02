@@ -37,7 +37,15 @@ defmodule NaagmWeb.Router do
       live "/rsvp", RSVPLive
       live "/photos", PhotosLive
       live "/about", AboutLive
-      live "/admin/guest", AdminGuestLive
+    end
+  end
+
+  scope "/admin", NaagmWeb do
+    pipe_through [:browser, :require_admin]
+
+    live_session :require_admin,
+      on_mount: [{NaagmWeb.UserAuth, :ensure_authenticated}] do
+      live "/guests", AdminGuestLive
     end
   end
 

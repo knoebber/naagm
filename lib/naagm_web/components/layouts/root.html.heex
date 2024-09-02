@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
     <.live_title suffix="">
-      <%= assigns[:page_title] || "NAAGM" %>
+      <%= assigns[:page_title] || "Anna and Nicolas" %>
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
@@ -20,6 +20,7 @@
           <a href={~p"/about"}>about</a>
           <a href={~p"/rsvp"}>rsvp</a>
           <a href={~p"/photos"}>photos</a>
+          <a :if={@admin?} href={~p"/admin/guests"}>responses</a>
         <% end %>
       </nav>
     </header>

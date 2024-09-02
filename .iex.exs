@@ -3,6 +3,7 @@ alias Naagm.{
   Guests
 }
 
+alias Naagm.Accounts.User
 alias Naagm.Guests.Guest
 alias Naagm.Repo
 

@@ -14,8 +14,6 @@ defmodule Naagm.Guests.Guest do
   end
 
   defp parse_party_members(changeset, is_coming_map) do
-    dbg(is_coming_map)
-
     parsed_party_members =
       changeset
       |> get_field(:raw_party_string)

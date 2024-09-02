@@ -22,11 +22,6 @@ config :naagm, NaagmWeb.Endpoint,
   pubsub_server: Naagm.PubSub,
   live_view: [signing_salt: "45G5bNVR"]
 
-# Configures the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.19.8",

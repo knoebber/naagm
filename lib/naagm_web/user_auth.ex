@@ -86,7 +86,10 @@ defmodule NaagmWeb.UserAuth do
   def fetch_current_user(conn, _opts) do
     {user_token, conn} = ensure_user_token(conn)
     user = user_token && Accounts.get_user_by_session_token(user_token)
-    assign(conn, :current_user, user)
+
+    conn
+    |> assign(:current_user, user)
+    |> assign(:admin?, user != nil and Accounts.admin?(user))
   end
 
   defp ensure_user_token(conn) do
@@ -196,6 +199,16 @@ defmodule NaagmWeb.UserAuth do
       conn
       |> maybe_store_return_to()
       |> redirect(to: ~p"/login")
+      |> halt()
+    end
+  end
+
+  def require_admin(conn, _opts) do
+    if conn.assigns[:current_user] != nil and Map.get(conn.assigns, :admin?, false) do
+      conn
+    else
+      conn
+      |> redirect(to: ~p"/")
       |> halt()
     end
   end
