@@ -44,7 +44,4 @@ assets:
 migrate:
 	mix ecto.migrate
 
-deploy: test
-	echo "for DEVIN to do 😸"
-
 .PHONY: all format test hex rebar deps create_db js compile assets migrate deploy warnings
