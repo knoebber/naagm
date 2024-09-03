@@ -123,6 +123,14 @@
     cursor: pointer;
 }
 
+.sunset {
+    background-image: url("https://d33j1my2155sn6.cloudfront.net/uploads/IMG_3612.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .login-wrapper {
     align-items: center;
     display: flex;

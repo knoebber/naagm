@@ -23,6 +23,7 @@ html {
     font-family: "Roboto", sans-serif;
     background-color: var(--orange);
     color: var(--black);
+    height: 100%;
 }
 
 h1 {
@@ -33,6 +34,7 @@ h1 {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    height: 100%;
 }
 
 img,

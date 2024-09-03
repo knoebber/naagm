@@ -1,6 +1,10 @@
 defmodule NaagmWeb.GuestLoginLive do
   use NaagmWeb, :live_view
 
+  def mount(_, _, socket) do
+    {:ok, assign(socket, :body_class, "sunset")}
+  end
+
   def render(assigns) do
     ~H"""
     <div class="login-wrapper">
