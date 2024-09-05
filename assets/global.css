@@ -2,11 +2,13 @@
     --font-size-big: 20px;
     --font-size-medium: 15px;
     --font-size-small: 12px;
-    --black: #434343;
-    --orange: orange;
-    --red: red;
-    --white: #f8f8f8;
-    --blue: #0d47a1;
+    --black: #1f0021;
+    --orange: #e09f3e;
+
+    --red: #540b0e;
+    --red-highlight: #9e2a2b;
+    --white: #fff3b0;
+    --blue: #335c67;
 }
 
 *,
@@ -21,7 +23,6 @@
 
 html {
     font-family: "Roboto", sans-serif;
-    background-color: var(--orange);
     color: var(--black);
     height: 100%;
 }
@@ -62,6 +63,9 @@ nav {
     display: flex;
     flex-direction: row-reverse;
     gap: 7px;
+    justify-content: space-between;
+    max-width: 400px;
+    width: 100%;
 }
 
 input {
@@ -98,7 +102,13 @@ section {
 header {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    background-color: var(--blue);
+}
+
+header a {
+    color: var(--white);
+    font-size: 24px;
 }
 
 @media (min-width: 800px) {

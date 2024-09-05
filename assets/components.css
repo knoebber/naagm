@@ -53,6 +53,7 @@
     height: 525px;
     width: 525px;
     border-style: dotted;
+    border-color: var(--red);
 }
 
 .image-grid {
@@ -123,12 +124,16 @@
     cursor: pointer;
 }
 
-.sunset {
+.sunset-bg {
     background-image: url("https://d33j1my2155sn6.cloudfront.net/uploads/IMG_3612.jpeg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.default-bg {
+    background-color: var(--orange);
 }
 
 .login-wrapper {

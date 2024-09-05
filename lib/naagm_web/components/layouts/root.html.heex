@@ -11,7 +11,7 @@
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
   </head>
-  <body class={assigns[:body_class] || ""}>
+  <body class={assigns[:body_class] || "default-bg"}>
     <header>
       <.flash_group flash={@flash} />
       <nav>
