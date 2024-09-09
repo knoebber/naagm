@@ -1,4 +1,5 @@
 defmodule NaagmWeb.GuestLoginLive do
+  alias Naagm.Accounts
   use NaagmWeb, :live_view
 
   def mount(_, _, socket) do
@@ -19,7 +20,7 @@ defmodule NaagmWeb.GuestLoginLive do
             required
             tabindex="1"
           />
-          <input type="hidden" name="user[email]" value="guest@example.com" />
+          <input type="hidden" name="user[email]" value={Accounts.guest_email()} />
           <input type="hidden" name="user[from]" value={~p"/login"} />
           <.button phx-disable-with="Logging in..." tabindex="0">
             <svg

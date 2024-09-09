@@ -2,7 +2,6 @@ defmodule NaagmWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import NaagmWeb.Gettext
 
   @doc """
   Renders flash notices.
@@ -35,15 +34,12 @@ defmodule NaagmWeb.CoreComponents do
       <div class="flash-title">
         <span>
           <%= if @kind == :info do %>
-            🗣️️
+            🌞
           <% else %>
             ❗
           <% end %>
           <%= @title %>
         </span>
-        <button type="button" aria-label={gettext("close")}>
-          Ⅹ
-        </button>
       </div>
       <p><%= msg %></p>
     </div>
@@ -141,7 +137,7 @@ defmodule NaagmWeb.CoreComponents do
 
   def button(assigns) do
     ~H"""
-    <button type={@type} {@rest}>
+    <button class="amatic-sc-bold button" type={@type} {@rest}>
       <%= render_slot(@inner_block) %>
     </button>
     """

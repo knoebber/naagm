@@ -3,6 +3,20 @@ defmodule NaagmWeb.Router do
 
   import NaagmWeb.UserAuth
 
+  def on_mount(:put_path, _params, _session, socket) do
+    {:cont,
+     Phoenix.LiveView.attach_hook(
+       socket,
+       :put_path,
+       :handle_params,
+       &put_path/3
+     )}
+  end
+
+  defp put_path(_params, url, socket) do
+    {:cont, Phoenix.Component.assign(socket, :current_path, URI.parse(url).path)}
+  end
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -31,7 +45,7 @@ defmodule NaagmWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     live_session :require_authenticated_user,
-      on_mount: [{NaagmWeb.UserAuth, :ensure_authenticated}] do
+      on_mount: [{NaagmWeb.UserAuth, :ensure_authenticated}, {__MODULE__, :put_path}] do
       live "/", HomeLive
       live "/upload", UploadLive
       live "/rsvp", RSVPLive

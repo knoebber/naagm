@@ -1,9 +1,17 @@
 .simple-form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    max-width: 420px;
+    gap: 32px;
+    max-width: 520px;
     padding: 8px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
 .rsvp-form textarea {
@@ -75,9 +83,12 @@
 
 .flash {
     background-color: var(--white);
-    margin-left: 10px;
-    padding: 5px;
     border-radius: 3px;
+    left: 35px;
+    padding: 5px;
+    position: absolute;
+    top: 35px;
+    width: 200px;
 }
 
 .flash .error {
@@ -144,9 +155,51 @@
     justify-content: center;
 }
 
-@media (max-width: 400px) {
-    .portrait,
-    .portrait-wrapper {
+.amatic-sc-regular {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.amatic-sc-bold {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.button {
+    font-size: 32px;
+    background-color: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+    border-radius: 3px;
+}
+
+.button:hover {
+    cursor: pointer;
+    border-color: var(--blue);
+}
+
+@media (max-width: 630px) {
+    .portrait {
         height: 300px;
+        width: 300px;
+    }
+
+    .portrait-wrapper {
+        height: 317px;
+        width: 317px;
+    }
+}
+
+@media (max-width: 430px) {
+    .portrait {
+        height: 200px;
+        width: 200px;
+    }
+
+    .portrait-wrapper {
+        height: 217px;
+        width: 217px;
     }
 }

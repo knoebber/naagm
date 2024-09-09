@@ -1,5 +1,32 @@
-<main>
-  <div>
-    <%= @inner_content %>
-  </div>
-</main>
+<body class={assigns[:body_class] || "default-bg"}>
+  <%= if assigns[:current_path] == nil do %>
+    <.flash_group flash={@flash} />
+  <% else %>
+    <header>
+      <.flash_group flash={@flash} />
+      <nav>
+        <.link
+          :for={
+            {path, title} <- [
+              {~p"/about", "about"},
+              {~p"/rsvp", "rsvp"},
+              {~p"/photos", "photos"},
+              {~p"/", "home"}
+            ]
+          }
+          :if={@current_user}
+          class={["amatic-sc-regular", if(@current_path == path, do: "active", else: "")]}
+          navigate={path}
+        >
+          <%= title %>
+        </.link>
+        <a :if={@admin?} href={~p"/admin/guests"}>responses</a>
+      </nav>
+    </header>
+  <% end %>
+  <main>
+    <div>
+      <%= @inner_content %>
+    </div>
+  </main>
+</body>

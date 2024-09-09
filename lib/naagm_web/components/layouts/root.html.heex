@@ -10,20 +10,12 @@
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class={assigns[:body_class] || "default-bg"}>
-    <header>
-      <.flash_group flash={@flash} />
-      <nav>
-        <%= if @current_user do %>
-          <a href={~p"/"}>home</a>
-          <a href={~p"/about"}>about</a>
-          <a href={~p"/rsvp"}>rsvp</a>
-          <a href={~p"/photos"}>photos</a>
-          <a :if={@admin?} href={~p"/admin/guests"}>responses</a>
-        <% end %>
-      </nav>
-    </header>
-    <%= @inner_content %>
-  </body>
+  <%= @inner_content %>
 </html>
