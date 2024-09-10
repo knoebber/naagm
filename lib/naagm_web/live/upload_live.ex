@@ -5,7 +5,14 @@ defmodule NaagmWeb.UploadLive do
   @region "us-west-2"
   @bucket "naagm"
   defp s3_url(), do: "https://#{@bucket}.s3-#{@region}.amazonaws.com"
-  defp make_s3_key(client_name), do: "uploads/#{client_name}"
+
+  defp make_s3_key(client_name, gallery?) do
+    if gallery? do
+      "uploads/gallery/#{client_name}"
+    else
+      "uploads/#{client_name}"
+    end
+  end
 
   defp error_to_string(reason) do
     case reason do
@@ -21,6 +28,7 @@ defmodule NaagmWeb.UploadLive do
     {:ok,
      socket
      |> assign(:uploaded_files, [])
+     |> assign(:gallery?, false)
      |> allow_upload(:content,
        accept: ~w(.jpg .jpeg .webp .png),
        max_entries: 10,
@@ -30,7 +38,7 @@ defmodule NaagmWeb.UploadLive do
 
   defp presign_upload(entry, socket) do
     uploads = socket.assigns.uploads
-    key = make_s3_key(entry.client_name)
+    key = make_s3_key(entry.client_name, socket.assigns.gallery?)
 
     config =
       %{
@@ -58,8 +66,9 @@ defmodule NaagmWeb.UploadLive do
   end
 
   @impl Phoenix.LiveView
-  def handle_event("validate", _params, socket) do
-    {:noreply, socket}
+  def handle_event("validate", params, socket) do
+    dbg(params)
+    {:noreply, assign(socket, :gallery?, params["gallery"] == "true")}
   end
 
   @impl Phoenix.LiveView
@@ -76,10 +85,11 @@ defmodule NaagmWeb.UploadLive do
   def render(assigns) do
     ~H"""
     <div class="">
-      <form id="upload-form" phx-submit="save" phx-change="validate">
+      <.simple_form id="upload-form" phx-submit="save" phx-change="validate" for={%{}}>
         <.live_file_input upload={@uploads.content} />
-        <button type="submit">Upload</button>
-      </form>
+        <.input type="checkbox" label="gallery?" name="gallery" checked={@gallery?} />
+        <button class="button" type="submit">Upload</button>
+      </.simple_form>
       <section phx-drop-target={@uploads.content.ref}>
         <%= for entry <- @uploads.content.entries do %>
           <article class="upload-entry">

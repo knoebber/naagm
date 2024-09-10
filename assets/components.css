@@ -125,16 +125,6 @@
     outline: none;
 }
 
-.guest-password-wrapper button {
-    background: none;
-    border: none;
-}
-
-.guest-password-wrapper button:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .sunset-bg {
     background-image: url("https://d33j1my2155sn6.cloudfront.net/uploads/IMG_3612.jpeg");
     background-position: center center;
