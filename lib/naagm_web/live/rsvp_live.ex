@@ -87,9 +87,10 @@ defmodule NaagmWeb.RSVPLive do
             <li :for={{member, member_id} <- with_member_ids(@parsed_party)}>
               <strong><%= member.full_name %></strong>:
               <span :for={
+                # TODO : validate yes or no is selected
                 {label, input_id, value, checked?} <- [
                   {"Yes", "#{member_id}-yes", "true", member.is_coming},
-                  {"No", "#{member_id}-no", "false", not member.is_coming}
+                  {"No", "#{member_id}-no", "false", member.is_coming === false}
                 ]
               }>
                 <label for={input_id}><%= label %></label>

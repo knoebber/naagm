@@ -28,7 +28,7 @@ defmodule Naagm.Guests.Guest do
         parsed_party_members
         |> Enum.with_index()
         |> Enum.map(fn {member, index} ->
-          %{full_name: member, is_coming: Map.get(is_coming_map, index, true)}
+          %{full_name: member, is_coming: Map.get(is_coming_map, index)}
         end)
 
       case Jason.encode(parsed_party) do
