@@ -43,7 +43,7 @@ defmodule NaagmWeb.PhotosLive do
       <div class="image-grid">
         <article :for={path <- @paths_to_render} class="image-frame">
           <.image path={path} />
-          <code><%= S3.make_label(path) %></code>
+          <.image_link path={path} />
         </article>
       </div>
     </section>

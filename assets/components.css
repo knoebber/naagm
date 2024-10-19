@@ -86,6 +86,10 @@
     text-align: center;
 }
 
+.image-frame a {
+    color: var(--black);
+}
+
 .home {
     gap: 32px;
 }

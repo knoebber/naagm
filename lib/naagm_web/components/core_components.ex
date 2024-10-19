@@ -3,6 +3,12 @@ defmodule NaagmWeb.CoreComponents do
 
   alias Phoenix.LiveView.JS
 
+  @cdn "https://d33j1my2155sn6.cloudfront.net/"
+
+  defp image_path(path) do
+    @cdn <> path
+  end
+
   @doc """
   Renders flash notices.
 
@@ -292,7 +298,18 @@ defmodule NaagmWeb.CoreComponents do
 
   def image(assigns) do
     ~H"""
-    <image class={@class} src={"https://d33j1my2155sn6.cloudfront.net/#{@path}"} />
+    <image class={@class} src={image_path(@path)} } />
+    """
+  end
+
+  attr :path, :string
+
+  def image_link(assigns) do
+    assigns =
+      assign(assigns, :label, Naagm.S3.make_label(assigns.path))
+
+    ~H"""
+    <a href={image_path(@path)} target="_blank"><%= @label %></a>
     """
   end
 
