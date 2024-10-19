@@ -287,6 +287,9 @@ defmodule NaagmWeb.CoreComponents do
     """
   end
 
+  attr :path, :string
+  attr :class, :string, default: ""
+
   def image(assigns) do
     ~H"""
     <image class={@class} src={"https://d33j1my2155sn6.cloudfront.net/#{@path}"} />

@@ -66,15 +66,24 @@
 
 .image-grid {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
     gap: 3px;
-    max-height: 100vh;
 }
 
 .image-grid img {
-    max-height: 300px;
+    max-height: 420px;
+}
+
+.image-frame {
+    align-content: center;
+    background: var(--white);
+    border: solid 3px var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 3px;
+    text-align: center;
 }
 
 .home {

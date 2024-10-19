@@ -74,9 +74,9 @@ defmodule NaagmWeb.RSVPLive do
     <div class="content">
       <.simple_form for={@form} phx-change="validate" phx-submit="create" class="rsvp-form">
         <section>
-          <h3>Who is coming?</h3>
+          <h3>Who is coming or not?</h3>
           <.input
-            label="You are welcome to bring your partner and children. Please enter the first and last name of everyone in your party (comma or newline separated)"
+            label="You are welcome to bring your family or guest. Please enter the first and last name of everyone in your party (comma or newline separated)"
             placeholder="Anna Thompson, Nicolas Knoebber"
             rows="3"
             type="textarea"
