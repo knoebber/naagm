@@ -94,7 +94,8 @@ input {
     border: 1px solid var(--black);
 }
 
-section {
+section,
+.container {
     display: flex;
     justify-content: center;
     align-content: center;

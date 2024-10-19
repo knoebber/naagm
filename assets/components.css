@@ -126,7 +126,7 @@
 }
 
 .sunset-bg {
-    background-image: url("https://d33j1my2155sn6.cloudfront.net/uploads/IMG_3612.jpeg");
+    background-image: url("https://d33j1my2155sn6.cloudfront.net/uploads/sunset.jpeg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -168,6 +168,18 @@
 .button:hover {
     cursor: pointer;
     border-color: var(--blue);
+}
+
+.upload-entries {
+    flex-direction: row;
+}
+
+.upload-entry img {
+    max-height: 500px;
+}
+
+.upload-form input {
+    border: none;
 }
 
 @media (max-width: 630px) {

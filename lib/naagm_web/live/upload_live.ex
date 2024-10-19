@@ -2,18 +2,6 @@ defmodule NaagmWeb.UploadLive do
   alias Naagm.S3
   use NaagmWeb, :live_view
 
-  @region "us-west-2"
-  @bucket "naagm"
-  defp s3_url(), do: "https://#{@bucket}.s3-#{@region}.amazonaws.com"
-
-  defp make_s3_key(client_name, gallery?) do
-    if gallery? do
-      "uploads/gallery/#{client_name}"
-    else
-      "uploads/#{client_name}"
-    end
-  end
-
   defp error_to_string(reason) do
     case reason do
       :external_client_failure -> "Failed to contact S3 server"
@@ -28,7 +16,6 @@ defmodule NaagmWeb.UploadLive do
     {:ok,
      socket
      |> assign(:uploaded_files, [])
-     |> assign(:gallery?, false)
      |> allow_upload(:content,
        accept: ~w(.jpg .jpeg .webp .png),
        max_entries: 10,
@@ -37,43 +24,23 @@ defmodule NaagmWeb.UploadLive do
   end
 
   defp presign_upload(entry, socket) do
-    uploads = socket.assigns.uploads
-    key = make_s3_key(entry.client_name, socket.assigns.gallery?)
+    %{url: url, fields: fields} =
+      S3.presign_upload(%{
+        client_name: entry.client_name,
+        gallery?: true
+      })
 
-    config =
-      %{
-        region: @region,
-        access_key_id: Application.fetch_env!(:naagm, :aws_key_id),
-        secret_access_key: Application.fetch_env!(:naagm, :aws_key_secret)
-      }
-
-    {:ok, fields} =
-      S3.sign_form_upload(config, @bucket,
-        key: key,
-        content_type: entry.client_type,
-        max_file_size: uploads[entry.upload_config].max_file_size,
-        expires_in: :timer.hours(1)
-      )
-
-    meta = %{
-      uploader: "S3",
-      key: key,
-      url: s3_url(),
-      fields: fields
-    }
-
-    {:ok, meta, socket}
+    {:ok, %{uploader: "S3", url: url, fields: fields}, socket}
   end
 
   @impl Phoenix.LiveView
   def handle_event("validate", params, socket) do
-    dbg(params)
     {:noreply, assign(socket, :gallery?, params["gallery"] == "true")}
   end
 
   @impl Phoenix.LiveView
   def handle_event("save", _params, socket) do
-    {:noreply, socket}
+    {:noreply, socket |> put_flash(:info, "Upload finished")}
   end
 
   @impl Phoenix.LiveView
@@ -84,13 +51,16 @@ defmodule NaagmWeb.UploadLive do
   @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
-    <div class="">
-      <.simple_form id="upload-form" phx-submit="save" phx-change="validate" for={%{}}>
-        <.live_file_input upload={@uploads.content} />
-        <.input type="checkbox" label="gallery?" name="gallery" checked={@gallery?} />
-        <button class="button" type="submit">Upload</button>
-      </.simple_form>
-      <section phx-drop-target={@uploads.content.ref}>
+    <div phx-drop-target={@uploads.content.ref} class="container">
+      <.form class="upload-form" id="upload-form" phx-submit="save" phx-change="validate" for={%{}}>
+        <label for={@uploads.content.ref}>
+          Drop a file or<.live_file_input upload={@uploads.content} />
+        </label>
+        <button :if={length(@uploads.content.entries) > 0} class="button" type="submit">
+          Upload
+        </button>
+      </.form>
+      <section class="upload-entries">
         <%= for entry <- @uploads.content.entries do %>
           <article class="upload-entry">
             <figure>

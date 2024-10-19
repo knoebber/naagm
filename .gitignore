@@ -15,4 +15,5 @@
 Naagm-*.tar
 erl_crash.dump
 npm-debug.log
-secrets.exs
+run.sh
+shell.sh

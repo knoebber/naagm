@@ -10,7 +10,6 @@ defmodule NaagmWeb.UserSessionController do
     else
       conn
       |> put_flash(:error, "invalid, please try again")
-      |> IO.inspect(label: "here")
       |> redirect(to: from)
     end
   end

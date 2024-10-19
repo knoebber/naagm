@@ -11,8 +11,11 @@ warnings:
 format:
 	mix format mix.exs "lib/**/*.{ex,exs}" "test/**/*.{ex,exs}"
 
+shell:
+	./shell.sh
+
 server:
-	mix phx.server
+	./run.sh
 
 test:
 	mix test
