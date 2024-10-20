@@ -65,8 +65,8 @@ defmodule NaagmWeb.CoreComponents do
   def flash_group(assigns) do
     ~H"""
     <div id={@id} class="flash-group">
-      <.flash kind={:info} title="Success!" flash={@flash} />
-      <.flash kind={:error} title="Error!" flash={@flash} />
+      <.flash kind={:info} title="Success" flash={@flash} />
+      <.flash kind={:error} title="Error" flash={@flash} />
       <.flash
         id="js-client-error"
         kind={:error}
@@ -294,11 +294,11 @@ defmodule NaagmWeb.CoreComponents do
   end
 
   attr :path, :string
-  attr :class, :string, default: ""
+  attr :rest, :global, include: ~w(loading)
 
   def image(assigns) do
     ~H"""
-    <image class={@class} src={image_path(@path)} } />
+    <image {@rest} src={image_path(@path)} } />
     """
   end
 

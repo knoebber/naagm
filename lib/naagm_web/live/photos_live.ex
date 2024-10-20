@@ -2,11 +2,6 @@ defmodule NaagmWeb.PhotosLive do
   alias Naagm.S3
   use NaagmWeb, :live_view
 
-  defp shuffle_list_each_hour(list, seed) when is_integer(seed) do
-    :rand.seed(:exs1024, seed)
-    Enum.shuffle(list)
-  end
-
   @impl Phoenix.LiveView
   def mount(_, _, socket) do
     {:ok, socket}
@@ -17,21 +12,37 @@ defmodule NaagmWeb.PhotosLive do
     utc_now_ms = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
     seed = Map.get(params, "seed")
 
-    seed =
+    :rand.seed(
+      :exs1024,
       if seed do
         String.to_integer(seed)
       else
         # when not specified, the seed will change once per hour
-        utc_hours = round(utc_now_ms / 1000 / 3600)
+        round(utc_now_ms / 1000 / 3600)
       end
+    )
 
-    paths_to_render = S3.list_gallery_keys()
+    get_loading_style = fn element, index ->
+      {
+        element,
+        if index <= 4 do
+          "eager"
+        else
+          "lazy"
+        end
+      }
+    end
+
+    paths_to_render =
+      S3.list_gallery_keys()
+      |> Enum.shuffle()
+      |> Enum.with_index(get_loading_style)
 
     {
       :noreply,
       socket
       |> assign(:next_seed, utc_now_ms)
-      |> assign(:paths_to_render, shuffle_list_each_hour(paths_to_render, seed))
+      |> assign(:paths_to_render, paths_to_render)
     }
   end
 
@@ -39,10 +50,10 @@ defmodule NaagmWeb.PhotosLive do
   def render(assigns) do
     ~H"""
     <section>
-      <h1>Photos <.link patch={"?seed=#{@next_seed}"}>🌱</.link></h1>
+      <h1>Photos <.link patch={"?seed=#{@next_seed}"}>🖼️</.link></h1>
       <div class="image-grid">
-        <article :for={path <- @paths_to_render} class="image-frame">
-          <.image path={path} />
+        <article :for={{path, loading} <- @paths_to_render} class="image-frame">
+          <.image loading={loading} path={path} />
           <.image_link path={path} />
         </article>
       </div>
