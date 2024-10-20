@@ -37,12 +37,9 @@ defmodule NaagmWeb.RSVPLive do
   def handle_event("create", %{"guest" => guest_params}, socket) do
     socket =
       case(Guests.create_guest(guest_params, make_is_coming_map(guest_params))) do
-        {:ok, _} ->
+        {:ok, guest} ->
           socket
-          # i always forget why this doesnt work.
-          |> put_flash(:info, "thanks for RSVPing!")
-          |> dbg
-          |> assign_data()
+          |> push_navigate(to: ~p"/rsvp/#{guest.uuid}")
 
         {:error, changeset} ->
           assign(socket, :form, to_form(changeset))
@@ -87,7 +84,6 @@ defmodule NaagmWeb.RSVPLive do
             <li :for={{member, member_id} <- with_member_ids(@parsed_party)}>
               <strong><%= member.full_name %></strong>:
               <span :for={
-                # TODO : validate yes or no is selected
                 {label, input_id, value, checked?} <- [
                   {"Yes", "#{member_id}-yes", "true", member.is_coming},
                   {"No", "#{member_id}-no", "false", member.is_coming === false}

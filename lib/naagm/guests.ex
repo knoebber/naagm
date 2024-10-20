@@ -6,8 +6,12 @@ defmodule Naagm.Guests do
     Repo.get(Guest, guest_id)
   end
 
+  def get_guest_by_uuid(uuid) do
+    Repo.get_by(Guest, uuid: uuid)
+  end
+
   def create_guest(params, is_coming_map) do
-    Repo.insert(Guest.changeset(%Guest{}, params, is_coming_map))
+    Repo.insert(Guest.changeset(%Guest{uuid: Ecto.UUID.generate()}, params, is_coming_map))
   end
 
   def delete_guest!(guest_id) do

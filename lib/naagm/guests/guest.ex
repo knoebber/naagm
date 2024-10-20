@@ -3,9 +3,11 @@ defmodule Naagm.Guests.Guest do
   import Ecto.Changeset
 
   schema "guests" do
+    field :uuid, :string
     field :party_json, :string
     field :food_restriction, :string, default: ""
     field :housing_preference, :string, default: ""
+    field :notes, :string, default: ""
 
     field :raw_party_string, :string, virtual: true, default: ""
     field :parsed_party, :any, virtual: true, default: []
@@ -55,7 +57,7 @@ defmodule Naagm.Guests.Guest do
 
   def changeset(guest, attrs, is_coming_map) do
     guest
-    |> cast(attrs, [:raw_party_string, :food_restriction, :housing_preference])
+    |> cast(attrs, [:raw_party_string, :food_restriction, :housing_preference, :notes])
     |> validate_required([:raw_party_string])
     |> maybe_set_party_json(is_coming_map)
   end
