@@ -2,16 +2,35 @@ defmodule Naagm.Guests do
   alias Naagm.Repo
   alias Naagm.Guests.Guest
 
+  defp hydrate_guest_json(%Guest{} = guest) do
+    Map.put(
+      guest,
+      :parsed_party,
+      Jason.decode!(guest.party_json)
+      |> Enum.map(fn map ->
+        Map.new(map, fn {key, value} ->
+          {String.to_atom(key), value}
+        end)
+      end)
+    )
+  end
+
   def get_guest(guest_id) do
-    Repo.get(Guest, guest_id)
+    Guest |> Repo.get(guest_id) |> hydrate_guest_json()
   end
 
   def get_guest_by_uuid(uuid) do
-    Repo.get_by(Guest, uuid: uuid)
+    Guest
+    |> Repo.get_by(uuid: uuid)
+    |> then(&if &1, do: hydrate_guest_json(&1), else: nil)
   end
 
   def create_guest(params, is_coming_map) do
     Repo.insert(Guest.changeset(%Guest{uuid: Ecto.UUID.generate()}, params, is_coming_map))
+  end
+
+  def update_guest(%Guest{} = guest, params, is_coming_map) do
+    Repo.update(Guest.changeset(guest, params, is_coming_map))
   end
 
   def delete_guest!(guest_id) do
@@ -23,17 +42,6 @@ defmodule Naagm.Guests do
   def list_guests() do
     Guest
     |> Repo.all()
-    |> Enum.map(fn guest ->
-      Map.put(
-        guest,
-        :parsed_party,
-        Jason.decode!(guest.party_json)
-        |> Enum.map(fn map ->
-          Map.new(map, fn {key, value} ->
-            {String.to_atom(key), value}
-          end)
-        end)
-      )
-    end)
+    |> Enum.map(&hydrate_guest_json/1)
   end
 end

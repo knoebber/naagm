@@ -49,7 +49,8 @@ defmodule NaagmWeb.Router do
       live "/", HomeLive
       live "/upload", UploadLive
       live "/rsvp", RSVPLive
-      live "/rsvp/:uuid", ShowRSVPLive
+      live "/rsvp/:uuid", ShowRSVPLive, :show
+      live "/rsvp/:uuid/edit", ShowRSVPLive, :edit
       live "/photos", PhotosLive
       live "/about", AboutLive
     end

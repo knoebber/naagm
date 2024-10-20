@@ -297,16 +297,23 @@ defmodule NaagmWeb.CoreComponents do
   attr :rest, :global, include: ~w(loading)
 
   def image(assigns) do
+    label = Naagm.S3.make_label(assigns.path)
+
+    assigns =
+      assign(assigns, :label, label)
+
     ~H"""
-    <image {@rest} src={image_path(@path)} } />
+    <image {@rest} alt={@label} src={image_path(@path)} } />
     """
   end
 
   attr :path, :string
 
   def image_link(assigns) do
+    label = Naagm.S3.make_label(assigns.path)
+
     assigns =
-      assign(assigns, :label, Naagm.S3.make_label(assigns.path))
+      assign(assigns, :label, label)
 
     ~H"""
     <a href={image_path(@path)} target="_blank"><%= @label %></a>

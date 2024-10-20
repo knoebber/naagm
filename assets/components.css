@@ -195,6 +195,11 @@
     border: none;
 }
 
+.rsvp-response {
+    font-weight: 450;
+    font-size: 20px;
+}
+
 @media (max-width: 630px) {
     .portrait {
         height: 300px;
