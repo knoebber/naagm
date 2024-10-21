@@ -90,6 +90,11 @@
     color: var(--black);
 }
 
+.single-image img {
+    max-width: 600px;
+    align-self: center;
+}
+
 .home {
     gap: 32px;
 }

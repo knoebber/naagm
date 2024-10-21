@@ -6,7 +6,7 @@ defmodule NaagmWeb.CoreComponents do
   @cdn "https://d33j1my2155sn6.cloudfront.net/"
 
   defp image_path(path) do
-    @cdn <> path
+    @cdn <> String.replace_prefix(path, "/", "")
   end
 
   @doc """
@@ -300,10 +300,12 @@ defmodule NaagmWeb.CoreComponents do
     label = Naagm.S3.make_label(assigns.path)
 
     assigns =
-      assign(assigns, :label, label)
+      assigns
+      |> assign(:label, label)
+      |> assign(:full_path, image_path(assigns.path))
 
     ~H"""
-    <image {@rest} alt={@label} src={image_path(@path)} } />
+    <image {@rest} alt={@label} src={@full_path} } />
     """
   end
 
@@ -316,7 +318,7 @@ defmodule NaagmWeb.CoreComponents do
       assign(assigns, :label, label)
 
     ~H"""
-    <a href={image_path(@path)} target="_blank"><%= @label %></a>
+    <.link navigate={@path} target="_blank"><%= @label %></.link>
     """
   end
 
