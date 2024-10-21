@@ -71,10 +71,6 @@
     gap: 3px;
 }
 
-.image-grid img {
-    height: 420px;
-}
-
 .image-frame {
     align-content: center;
     background: var(--white);
@@ -203,6 +199,12 @@
 .rsvp-response {
     font-weight: 450;
     font-size: 20px;
+}
+
+@media (min-width: 700px) {
+    .image-grid img {
+        height: 420px;
+    }
 }
 
 @media (max-width: 630px) {
