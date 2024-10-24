@@ -47,4 +47,7 @@ assets:
 migrate:
 	mix ecto.migrate
 
+deploy:
+	fly deploy
+
 .PHONY: all format test hex rebar deps create_db js compile assets migrate deploy warnings
