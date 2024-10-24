@@ -201,7 +201,6 @@
 
 .huge {
     font-size: 40px;
-    font-weight: 600;
 }
 
 .amatic-sc-bold {
@@ -331,7 +330,11 @@
         justify-content: space-around;
     }
 
-    .portrait {
+    .sub-nav {
+        flex-direction: column;
+    }
+
+    . .portrait {
         height: 300px;
         width: 300px;
     }
