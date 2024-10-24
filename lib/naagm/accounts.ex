@@ -122,4 +122,8 @@ defmodule Naagm.Accounts do
     Repo.delete_all(UserToken.by_token_and_context_query(token, "session"))
     :ok
   end
+
+  def list_users do
+    Repo.all(User)
+  end
 end

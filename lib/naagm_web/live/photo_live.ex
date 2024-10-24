@@ -1,5 +1,4 @@
 defmodule NaagmWeb.PhotoLive do
-  alias Naagm.S3
   use NaagmWeb, :live_view
 
   @impl Phoenix.LiveView

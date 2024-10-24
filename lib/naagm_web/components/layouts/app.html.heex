@@ -4,14 +4,16 @@
   <% else %>
     <header>
       <.flash_group flash={@flash} />
-      <nav>
+      <nav class="main-nav">
+        <.link href={~p"/"} class="sun-wrapper">
+          <div class="sun"></div>
+        </.link>
         <.link
           :for={
             {path, title} <- [
               {~p"/about", "about"},
-              {~p"/rsvp", "rsvp"},
               {~p"/photos", "photos"},
-              {~p"/", "home"}
+              {~p"/rsvp", "rsvp"}
             ]
           }
           :if={@current_user}
@@ -20,13 +22,11 @@
         >
           <%= title %>
         </.link>
-        <a :if={@admin?} href={~p"/admin/guests"}>responses</a>
       </nav>
     </header>
   <% end %>
   <main>
-    <div>
-      <%= @inner_content %>
-    </div>
+    <%= @inner_content %>
   </main>
+  <footer></footer>
 </body>

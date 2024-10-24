@@ -13,8 +13,21 @@ defmodule NaagmWeb.UploadLive do
 
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
+    admin? = Naagm.Accounts.admin?(socket.assigns.current_user)
+    prefixes = S3.prefixes()
+
+    prefix =
+      if admin? do
+        hd(prefixes)
+      else
+        S3.guest_gallery_prefix()
+      end
+
     {:ok,
      socket
+     |> assign(:admin?, admin?)
+     |> assign(:prefixes, prefixes)
+     |> assign(:prefix, prefix)
      |> assign(:uploaded_files, [])
      |> allow_upload(:content,
        accept: ~w(.jpg .jpeg .webp .png),
@@ -27,10 +40,15 @@ defmodule NaagmWeb.UploadLive do
     %{url: url, fields: fields} =
       S3.presign_upload(%{
         client_name: entry.client_name,
-        gallery?: true
+        prefix: socket.assigns.prefix
       })
 
     {:ok, %{uploader: "S3", url: url, fields: fields}, socket}
+  end
+
+  @impl Phoenix.LiveView
+  def handle_event("select-prefix", %{"prefix" => prefix}, socket) do
+    {:noreply, assign(socket, :prefix, prefix)}
   end
 
   @impl Phoenix.LiveView
@@ -52,6 +70,9 @@ defmodule NaagmWeb.UploadLive do
   def render(assigns) do
     ~H"""
     <div phx-drop-target={@uploads.content.ref} class="container">
+      <.form :if={@admin?} phx-change="select-prefix" for={%{}}>
+        <.input name="prefix" type="select" value={@prefix} options={@prefixes} />
+      </.form>
       <.form class="upload-form" id="upload-form" phx-submit="save" phx-change="validate" for={%{}}>
         <label for={@uploads.content.ref}>
           Drop a file or<.live_file_input upload={@uploads.content} />

@@ -49,8 +49,14 @@ defmodule NaagmWeb.PhotosLive do
   @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
-    <section>
-      <h1>Photos <.link patch={"?seed=#{@next_seed}"}>🖼️</.link></h1>
+    <section class="photos-wrapper">
+      <h1>Photos <.link patch={"?seed=#{@next_seed}"}>🌻</.link></h1>
+      <nav>
+        <.link patch={~p"/"}>Life</.link>
+        <.link patch={~p"/"}>Kolby Wall Photography</.link>
+        <.link patch={~p"/"}>Rancho Navarro Photos</.link>
+        <.link patch={~p"/"}>Guest Uploads</.link>
+      </nav>
       <div class="image-grid">
         <article :for={{path, loading} <- @paths_to_render} class="image-frame">
           <.image loading={loading} path={path} />

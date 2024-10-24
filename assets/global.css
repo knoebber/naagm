@@ -60,18 +60,16 @@ select {
     font: inherit;
 }
 
-main,
-nav {
+main {
     margin: 50px;
 }
 
 nav {
     display: flex;
-    flex-direction: row-reverse;
     gap: 7px;
     justify-content: space-between;
-    max-width: 400px;
     width: 100%;
+    align-items: center;
 }
 
 input {
@@ -102,7 +100,6 @@ section,
 .container {
     display: flex;
     justify-content: center;
-    align-content: center;
     flex-direction: column;
     gap: 16px;
 }
