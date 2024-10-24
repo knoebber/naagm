@@ -199,6 +199,11 @@
     font-style: normal;
 }
 
+.huge {
+    font-size: 40px;
+    font-weight: 600;
+}
+
 .amatic-sc-bold {
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;

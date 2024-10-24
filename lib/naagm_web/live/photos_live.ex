@@ -76,7 +76,6 @@ defmodule NaagmWeb.PhotosLive do
               end
             end
           )
-          |> dbg
       end
 
     get_loading_style = fn element, index ->
