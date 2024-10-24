@@ -27,7 +27,20 @@ defmodule Naagm.S3 do
     |> list_objects
     |> Map.get(:body, %{})
     |> Map.get(:contents, [])
-    |> Enum.map(& &1.key)
+    |> Enum.reduce(
+      [],
+      fn object, keys ->
+        key = object.key
+        [_, key_name] = String.split(object.key, prefix)
+
+        if String.contains?(key_name, "/") or String.ends_with?(key, "/") do
+          keys
+        else
+          # only return non-nested and non-directory keys
+          [key | keys]
+        end
+      end
+    )
   end
 
   def prefixes do
@@ -40,9 +53,19 @@ defmodule Naagm.S3 do
     ]
   end
 
-  def guest_gallery_prefix do
-    @guest_prefix
+  def gallery_render_tuples do
+    [
+      {@gallery_prefix, "Life", :random},
+      {@kolby_prefix, "Kolby Wall Photography", :random},
+      {@guest_prefix, "Guest Uploads", :random},
+      {@house_prefix, "House Construction", :alpha}
+    ]
   end
+
+  def gallery_prefix, do: @gallery_prefix
+  def guest_gallery_prefix, do: @guest_prefix
+  def house_gallery_prefix, do: @house_prefix
+  def kolby_gallery_prefix, do: @kolby_prefix
 
   def list_upload_keys(), do: list_keys(@upload_prefix)
   def list_gallery_keys(), do: list_keys(@gallery_prefix)
@@ -52,11 +75,11 @@ defmodule Naagm.S3 do
 
   def make_label(key) do
     key
-    |> String.replace("_", " ")
-    |> String.replace("-", " ")
-    |> String.replace(@gallery_prefix, "")
-    |> String.replace(@upload_prefix, "")
     |> String.split(".")
     |> hd
+    |> String.replace(~r"^.+/", "")
+    |> String.replace(~r"^[0-9]+_", "")
+    |> String.replace("_", " ")
+    |> String.replace("-", " ")
   end
 end

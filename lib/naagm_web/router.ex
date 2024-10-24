@@ -51,12 +51,10 @@ defmodule NaagmWeb.Router do
       live "/rsvp", RSVPLive
       live "/rsvp/:uuid", ShowRSVPLive, :show
       live "/rsvp/:uuid/edit", ShowRSVPLive, :edit
-      live "/photos", PhotosLive
+      live "/gallery", PhotosLive
+      live "/gallery/:folder", PhotosLive
+      live "/gallery/:folder/:path", PhotoLive
       live "/about", AboutLive
-      live "/gallery/:path", PhotoLive
-      live "/gallery/guest/:path", PhotoLive
-      live "/gallery/house/:path", PhotoLive
-      live "/gallery/kolby/:path", PhotoLive
     end
   end
 

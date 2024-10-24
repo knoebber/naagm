@@ -59,15 +59,19 @@
     align-items: center;
 }
 
-.photos-wrapper a {
-    color: var(--black);
-}
-
-.photos-wrapper nav {
+.sub-nav {
     background-color: var(--white);
     padding: 10px;
     max-width: 800px;
     border: solid 1px var(--blue);
+}
+
+.sub-nav a {
+    color: var(--black);
+}
+
+.sub-nav .active {
+    color: var(--blue);
 }
 
 .home-wrapper,

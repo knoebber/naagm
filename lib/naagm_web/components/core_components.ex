@@ -318,7 +318,7 @@ defmodule NaagmWeb.CoreComponents do
       assign(assigns, :label, label)
 
     ~H"""
-    <.link navigate={@path}><%= @label %></.link>
+    <.link navigate={"/" <> @path}><%= @label %></.link>
     """
   end
 
