@@ -26,11 +26,11 @@ defmodule Naagm.Guests do
   end
 
   def create_guest(params, is_coming_map) do
-    Repo.insert(Guest.changeset(%Guest{uuid: Ecto.UUID.generate()}, params, is_coming_map))
+    Repo.insert(Guest.changeset(%Guest{uuid: Ecto.UUID.generate()}, params, is_coming_map, true))
   end
 
   def update_guest(%Guest{} = guest, params, is_coming_map) do
-    Repo.update(Guest.changeset(guest, params, is_coming_map))
+    Repo.update(Guest.changeset(guest, params, is_coming_map, true))
   end
 
   def delete_guest!(guest_id) do
@@ -43,5 +43,11 @@ defmodule Naagm.Guests do
     Guest
     |> Repo.all()
     |> Enum.map(&hydrate_guest_json/1)
+  end
+
+  def all_member_tuples() do
+    Enum.reduce(list_guests(), [], fn guest, member_tuples ->
+      Enum.map(guest.parsed_party, &{&1.full_name, &1.is_coming}) ++ member_tuples
+    end)
   end
 end

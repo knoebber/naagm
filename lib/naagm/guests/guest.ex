@@ -1,6 +1,7 @@
 defmodule Naagm.Guests.Guest do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Naagm.Guests
 
   schema "guests" do
     field :uuid, :string
@@ -55,10 +56,53 @@ defmodule Naagm.Guests.Guest do
     end
   end
 
-  def changeset(guest, attrs, is_coming_map) do
+  defp maybe_validate_members(c, false), do: c
+
+  defp maybe_validate_members(%Ecto.Changeset{} = changeset, true) do
+    member_tuples = Guests.all_member_tuples()
+
+    parsed_party = Map.get(changeset.changes, :parsed_party, [])
+
+    errors =
+      if Enum.any?(parsed_party, &is_nil(&1.is_coming)) do
+        ["Please select yes or no for each member"]
+      else
+        []
+      end
+
+    duplicate_member =
+      Enum.find(
+        parsed_party,
+        fn %{full_name: full_name} ->
+          duplicate_member_tuple =
+            Enum.find(member_tuples, fn {existing_name, _} -> existing_name == full_name end)
+
+          if duplicate_member_tuple &&
+               Enum.all?(changeset.data.parsed_party, fn member ->
+                 member.full_name != elem(duplicate_member_tuple, 0)
+               end) do
+            duplicate_member_tuple
+          end
+        end
+      )
+
+    errors =
+      if duplicate_member do
+        ["\"#{duplicate_member.full_name}\" has already RSVPed" | errors]
+      else
+        errors
+      end
+
+    Enum.reduce(errors, changeset, fn error, c ->
+      add_error(c, :raw_party_string, error)
+    end)
+  end
+
+  def changeset(guest, attrs, is_coming_map, should_validate_members \\ false) do
     guest
     |> cast(attrs, [:raw_party_string, :food_restriction, :housing_preference, :notes])
     |> validate_required([:raw_party_string])
     |> maybe_set_party_json(is_coming_map)
+    |> maybe_validate_members(should_validate_members)
   end
 end
