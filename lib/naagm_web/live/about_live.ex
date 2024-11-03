@@ -4,13 +4,12 @@ defmodule NaagmWeb.AboutLive do
   @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
-    <div class="content">
+    <div class="content about">
       <nav class="sub-nav">
         <.link
           :for={
             {label, anchor} <- [
-              {"Schedule", "schedule"},
-              {"Planning", "planning"},
+              {"Location", "location"},
               {"How to get there", "directions"},
               {"Where to stay", "lodging"}
             ]
@@ -20,11 +19,13 @@ defmodule NaagmWeb.AboutLive do
           <%= label %>
         </.link>
       </nav>
-      <section id="schedule">
-        <h2>Schedule</h2>
+      <section id="location">
+        <h2>Date / Time / Location</h2>
         <p>
-          blah blblah blblah blblah blblah blblah blahhhhhh blahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhh
-          blah blblah blblah blblah blblah blblah blahhhhhh blahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhhblahhhhhh
+          Our venue is <a href="https://www.google.com/maps/place/Heartwood+Mendocino/@39.3272897,-123.7124695,12.23z/data=!4m9!3m8!1s0x8081b3e97bce8111:0x2c5657768bef1eb1!5m2!4m1!1i2!8m2!3d39.3201641!4d-123.7308204!16s%2Fg%2F11ry5n0t06?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
+            Heartwood Mendocino
+          </a>.
+          The ceremony will start at 4:30pm on June 21st, 2025.
         </p>
       </section>
 
@@ -55,7 +56,21 @@ defmodule NaagmWeb.AboutLive do
       <section id="lodging">
         <h2>Where to Stay</h2>
         <p>
-          Immerse yourself in the wedding: Complimentary tent camping is available at our venue - and it’s beautiful. Guests will share a communal bath house, lawn, and outdoor cooking area. This will be a fun environment for unstructured socialization throughout the weekend. Keep in mind that you will be in the thick of the action and there may be noise and disruptions - especially on Saturday night! And beware, you may be roped into a task or two if you are around during the day. Camping will be available Thurs-Sun, or you can extend your stay by reserving on Hipcamp. Reservations via Hipcamp are not necessary for Thurs-Sun night, but we would like to know of your intention to camp for our own planning purposes (Example: https://www.hipcamp.com/en-US/land/california-heartwood-mendocino-gv1qh7dm/sites/1093760?adults=1&children=0&srid=2392e3ed-69ca-462b-a427-40200bf2c1a3 )
+          Immerse yourself in the wedding: Complimentary tent camping is available at our venue - and it’s beautiful.
+          Guests will share a communal bath house, lawn, and outdoor cooking area.
+          This will be a fun environment for unstructured socialization throughout the weekend.
+        </p>
+
+        <p>
+          Keep in mind that you will be in the thick of the action and there may be noise and disruptions - especially on Saturday night!
+          And beware, you may be roped into a task or two if you are around during the day.
+          Camping will be available Thurs-Sun, or you can extend your stay by reserving on Hipcamp.
+          Reservations via Hipcamp are not necessary for Thurs-Sun night, but we would like to know of your intention to camp for our own planning purposes
+          (Example:
+          <a href="https://www.hipcamp.com/en-US/land/california-heartwood-mendocino-gv1qh7dm/sites/1093760?adults=1&children=0&srid=2392e3ed-69ca-462b-a427-40200bf2c1a3">
+            hipcamp.com/en-US/land/california-heartwood-mendocino-gv1qh7dm/sites/1093760
+          </a>
+          )
         </p>
         <p>
           Immerse yourself in our life: For lengthier stays or more isolation, tent camping is also available at Cosmo’s Camp or at our place in Rancho Navarro.

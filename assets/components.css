@@ -18,6 +18,10 @@
     gap: 16px;
 }
 
+.about > section {
+    max-width: 800px;
+}
+
 .textarea-wrapper {
     display: flex;
     flex-direction: column;
