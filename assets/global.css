@@ -105,6 +105,10 @@ section,
     width: 100%;
 }
 
+.align-center {
+    align-items: center;
+}
+
 header {
     align-items: center;
     display: flex;

@@ -226,6 +226,11 @@
     border-color: var(--blue);
 }
 
+a.button {
+    text-align: center;
+    width: 200px;
+}
+
 .upload-entries {
     flex-direction: row;
 }
