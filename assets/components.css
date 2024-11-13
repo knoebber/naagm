@@ -177,6 +177,10 @@
     outline: none;
 }
 
+.guest-password-wrapper .button {
+    width: 40px;
+}
+
 .sunset-bg {
     background-image: url("https://d33j1my2155sn6.cloudfront.net/uploads/sunset.jpeg");
     background-position: center center;
@@ -229,6 +233,10 @@
 a.button {
     text-align: center;
     width: 200px;
+}
+
+p a.button {
+    font-size: var(--font-size-medium);
 }
 
 .upload-entries {
