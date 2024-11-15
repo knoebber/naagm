@@ -14,6 +14,7 @@ defmodule Naagm.Accounts do
   def guest_email, do: @guest_email
   def admin_email, do: @admin_email
   def guest?(%User{email: email}), do: email == @guest_email
+  def admin?(nil), do: false
   def admin?(%User{email: email}), do: email == @admin_email
 
   ## Database getters

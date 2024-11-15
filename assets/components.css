@@ -28,6 +28,11 @@
     gap: 8px;
 }
 
+.select-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
 .rsvp-form textarea {
     width: 100%;
 }
@@ -254,6 +259,21 @@ p a.button {
 .rsvp-response {
     font-weight: 450;
     font-size: 20px;
+    width: fit-content;
+    margin: 16px;
+}
+
+.admin-guest-wrapper table {
+    width: 100%;
+    background: var(--blue);
+}
+
+.admin-guest-wrapper tr {
+    background-color: var(--white);
+}
+
+.admin-guest-wrapper td {
+    padding: 5px;
 }
 
 .sun {

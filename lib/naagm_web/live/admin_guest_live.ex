@@ -36,25 +36,33 @@ defmodule NaagmWeb.AdminGuestLive do
       <table>
         <thead>
           <tr>
+            <th>Link</th>
             <th>Party</th>
+            <th>Food Preference</th>
             <th>Food Restriction</th>
             <th>Housing Preference</th>
+            <th>Notes</th>
             <th>Created At</th>
           </tr>
         </thead>
         <tbody>
           <tr :for={guest <- @guests} class="guest-row">
+            <td><.link navigate={~p"/rsvp/#{guest.uuid}"}>🔗</.link></td>
             <td>
-              <span :for={member <- guest.parsed_party}>
-                <%= if member.is_coming do %>
-                  <%= member.full_name %>
-                <% else %>
-                  <del><%= member.full_name %></del>
-                <% end %>
-              </span>
+              <ul>
+                <li :for={member <- guest.parsed_party}>
+                  <%= if member.is_coming do %>
+                    <%= member.full_name %>
+                  <% else %>
+                    <del><%= member.full_name %></del>
+                  <% end %>
+                </li>
+              </ul>
             </td>
+            <td><%= guest.food_preference %></td>
             <td><%= guest.food_restriction %></td>
             <td><%= guest.housing_preference %></td>
+            <td><%= guest.notes %></td>
             <td><%= guest.inserted_at %></td>
           </tr>
         </tbody>

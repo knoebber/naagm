@@ -22,6 +22,16 @@
         >
           <%= title %>
         </.link>
+        <.link
+          :if={Naagm.Accounts.admin?(@current_user)}
+          class={[
+            "amatic-sc-regular",
+            if(@current_path == "/admin/guests", do: "active", else: "")
+          ]}
+          navigate={~p"/admin/guests"}
+        >
+          responses
+        </.link>
       </nav>
     </header>
   <% end %>

@@ -64,7 +64,7 @@ defmodule NaagmWeb.Router do
     pipe_through [:browser, :require_admin]
 
     live_session :require_admin,
-      on_mount: [{NaagmWeb.UserAuth, :ensure_authenticated}] do
+      on_mount: [{NaagmWeb.UserAuth, :ensure_authenticated}, {__MODULE__, :put_path}] do
       live "/guests", AdminGuestLive
     end
   end

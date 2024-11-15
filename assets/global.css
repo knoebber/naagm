@@ -60,6 +60,10 @@ select {
     font: inherit;
 }
 
+select {
+    background: white;
+}
+
 main {
     margin: 50px;
 }
