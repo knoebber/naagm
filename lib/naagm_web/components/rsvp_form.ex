@@ -132,6 +132,12 @@ defmodule NaagmWeb.RSVPForm do
         </section>
         <section>
           <h3>Preferences (optional)</h3>
+          <.input
+            type="select"
+            label="Food Preference?"
+            options={["Undecided", "Tri-Tip", "Salmon", "Vegan Curry"]}
+            field={@form[:food_preference]}
+          />
           <.input label="Food Restriction?" field={@form[:food_restriction]} />
           <.input
             label="Are you interested in camping on-site? More info to come."
