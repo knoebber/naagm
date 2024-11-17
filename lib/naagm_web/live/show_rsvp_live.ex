@@ -67,9 +67,6 @@ defmodule NaagmWeb.ShowRSVPLive do
             </li>
           </ol>
         </div>
-        <div :if={@guest.food_preference != ""}>
-          Food Preference: <span><%= @guest.food_preference %></span>
-        </div>
         <div :if={@guest.food_restriction != ""}>
           Food Restrictions: <span><%= @guest.food_restriction %></span>
         </div>

@@ -38,7 +38,6 @@ defmodule NaagmWeb.AdminGuestLive do
           <tr>
             <th>Link</th>
             <th>Party</th>
-            <th>Food Preference</th>
             <th>Food Restriction</th>
             <th>Housing Preference</th>
             <th>Notes</th>
@@ -59,7 +58,6 @@ defmodule NaagmWeb.AdminGuestLive do
                 </li>
               </ul>
             </td>
-            <td><%= guest.food_preference %></td>
             <td><%= guest.food_restriction %></td>
             <td><%= guest.housing_preference %></td>
             <td><%= guest.notes %></td>

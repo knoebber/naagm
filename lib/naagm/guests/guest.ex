@@ -7,7 +7,6 @@ defmodule Naagm.Guests.Guest do
     field :uuid, :string
     field :party_json, :string
     field :food_restriction, :string, default: ""
-    field :food_preference, :string, default: ""
     field :housing_preference, :string, default: ""
     field :notes, :string, default: ""
 
@@ -102,7 +101,6 @@ defmodule Naagm.Guests.Guest do
   def changeset(guest, attrs, is_coming_map, should_validate_members \\ false) do
     guest
     |> cast(attrs, [
-      :food_preference,
       :food_restriction,
       :housing_preference,
       :notes,
