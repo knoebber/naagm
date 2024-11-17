@@ -16,6 +16,29 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    margin-bottom: 32px;
+}
+
+footer {
+    margin-top: 32px;
+    font-size: 14px;
+    border-top: 1px solid var(--blue);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer nav {
+    gap: 90px;
+    justify-content: center;
+}
+
+footer div {
+    text-align: center;
+}
+
+.bold {
+    font-weight: 600;
 }
 
 .about > section {

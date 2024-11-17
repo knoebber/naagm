@@ -57,7 +57,7 @@ defmodule Naagm.S3 do
     [
       {@gallery_prefix, "Life", :random},
       {@kolby_prefix, "Kolby Wall Photography", :random},
-      {@guest_prefix, "Guest Uploads", :random},
+      # {@guest_prefix, "Guest Uploads", :random},
       {@house_prefix, "House Construction", :alpha}
     ]
   end

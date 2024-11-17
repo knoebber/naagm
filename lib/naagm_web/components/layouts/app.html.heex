@@ -37,6 +37,14 @@
   <% end %>
   <main>
     <%= @inner_content %>
+
+    <footer :if={@current_path != "/"}>
+      <nav>
+        <.link navigate="/">HOME</.link>
+        <.link href="/about#faq">FAQs</.link>
+      </nav>
+      <div>Anna Thompson --- acthompson211@gmail.com / 541-554-2795</div>
+      <div>Nicolas Knoebber --- knoebber@gmail.com / 641-160-1703</div>
+    </footer>
   </main>
-  <footer></footer>
 </body>

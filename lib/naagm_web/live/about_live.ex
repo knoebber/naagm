@@ -24,7 +24,7 @@ defmodule NaagmWeb.AboutLive do
 
   defp faq do
     [
-      {"What should I wear?", "Semi-formal with optional pizzazz 🪄✨✨"},
+      {"What should I wear?", "Semi-formal with semi-optional pizzazz 🪄✨✨"},
       {"Can I bring my kiddos?",
        "Yes please! We want to see your whole family and we hope this will be a fun event for all! Just be sure to RSVP for your entire group, including kids."},
       {"Do I get a plus one?",
@@ -60,13 +60,13 @@ defmodule NaagmWeb.AboutLive do
       </nav>
       <section id="overview">
         <h2>Overview 👁️👁️</h2>
-        <p>
+        <p class="bold">
           Our wedding will take place at a family venue amongst the redwoods, a few miles inland from the Mendocino Coast.
           The wedding itself will take place on Saturday evening, June 21st, 2025.
           The ceremony will be at 4:30 pm, with a reception to follow. Details to come.
         </p>
 
-        <p>
+        <p class="bold">
           For more information, read on below, or contact us with any questions: <br />
           Anna Thompson --- acthompson211@gmail.com / 541-554-2795
           <br />Nicolas Knoebber --- knoebber@gmail.com / 641-160-1703
@@ -78,9 +78,13 @@ defmodule NaagmWeb.AboutLive do
 
         <p>
           We  really appreciate our family and friends gathering from far and wide and we are so excited to see you all in one place!
-          To that end, we hope to spend as much additional time with folks visiting from out of town as we can pull off.
+          To that end, we hope to spend additional time with folks visiting from out of town.
           So, share your travel plans with us and check back as the time draws nearer, since we hope to coordinate some additional informal gatherings in the days before the wedding.
-          Mendocino is truly a special place to visit, so if you have the time, there is plenty to do and see (restaurants, wine, epic coastline, redwoods, state parks, etc.). We outlined some of our favorite destinations later on this page.
+          <.link href="#lodging">Camping at the venue</.link>
+          is also available for more unstructured social time.
+          Mendocino is truly a special place to visit, so if you have the time,
+          there is plenty to do and see (restaurants, wine, epic coastline, redwoods, state parks, etc.).
+          We outlined some of our favorite destinations later on this page.
         </p>
         <p>
           <strong>Our venue is Heartwood Mendocino</strong>
@@ -106,8 +110,8 @@ defmodule NaagmWeb.AboutLive do
           From the south, you will likely pass Anderson Valley on Hwy 128, which is also a significant destination for wineries and wine tasting.
         </p>
         <p>
-          The closest airport is in Santa Rosa (2hr 30 from venue).
-          Common alternative options are San Fransisco, Oakland, or Sacramento (~4 hr drives).
+          The closest airport is in Santa Rosa (2hr 15 from venue).
+          Common alternative options are San Francisco, Oakland, or Sacramento (3hr 30 to 4 hr drives).
         </p>
         <p>
           Most guests will likely drive their own car to the venue.
@@ -157,8 +161,8 @@ defmodule NaagmWeb.AboutLive do
           </a>
           in Rancho Navarro. These are 45-55 min drives, respectively.
           Get in touch and we’ll hook you up (no need to make reservations via Hipcamp), but follow the links for reference.
-          Looking for a tent? Check out REI for reasonable rentals.
         </p>
+        <p>Looking for a tent? Check out REI for reasonable rentals.</p>
         <h3>Hotels, vacation rentals, and more</h3>
         <p>
           The Mendocino Coast is a popular spot, so there are some fabulous options if you BOOK AHEAD!
