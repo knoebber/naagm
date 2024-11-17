@@ -38,7 +38,7 @@
   <main>
     <%= @inner_content %>
 
-    <footer :if={@current_path != "/"}>
+    <footer :if={assigns[:current_path] != nil and assigns[:current_path] != "/"}>
       <nav>
         <.link navigate="/">HOME</.link>
         <.link href="/about#faq">FAQs</.link>
