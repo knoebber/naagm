@@ -32,7 +32,7 @@ defmodule NaagmWeb.AdminGuestLive do
   def render(assigns) do
     ~H"""
     <div class="admin-guest-wrapper">
-      <span>Count: <%= "#{@total_coming}/#{@total_responses}" %></span>
+      <span>Count: {"#{@total_coming}/#{@total_responses}"}</span>
       <table>
         <thead>
           <tr>
@@ -51,17 +51,17 @@ defmodule NaagmWeb.AdminGuestLive do
               <ul>
                 <li :for={member <- guest.parsed_party}>
                   <%= if member.is_coming do %>
-                    <%= member.full_name %>
+                    {member.full_name}
                   <% else %>
-                    <del><%= member.full_name %></del>
+                    <del>{member.full_name}</del>
                   <% end %>
                 </li>
               </ul>
             </td>
-            <td><%= guest.food_restriction %></td>
-            <td><%= guest.housing_preference %></td>
-            <td><%= guest.notes %></td>
-            <td><%= guest.inserted_at %></td>
+            <td>{guest.food_restriction}</td>
+            <td>{guest.housing_preference}</td>
+            <td>{guest.notes}</td>
+            <td>{guest.inserted_at}</td>
           </tr>
         </tbody>
       </table>

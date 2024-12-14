@@ -17,3 +17,4 @@ erl_crash.dump
 npm-debug.log
 run.sh
 shell.sh
+.elixir_ls/

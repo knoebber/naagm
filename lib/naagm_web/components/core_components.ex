@@ -44,10 +44,10 @@ defmodule NaagmWeb.CoreComponents do
           <% else %>
             ❗
           <% end %>
-          <%= @title %>
+          {@title}
         </span>
       </div>
-      <p><%= msg %></p>
+      <p>{msg}</p>
     </div>
     """
   end
@@ -119,9 +119,9 @@ defmodule NaagmWeb.CoreComponents do
   def simple_form(assigns) do
     ~H"""
     <.form :let={f} for={@for} as={@as} {@rest} class={["simple-form", @class]}>
-      <%= render_slot(@inner_block, f) %>
+      {render_slot(@inner_block, f)}
       <div :for={action <- @actions}>
-        <%= render_slot(action, f) %>
+        {render_slot(action, f)}
       </div>
     </.form>
     """
@@ -144,7 +144,7 @@ defmodule NaagmWeb.CoreComponents do
   def button(assigns) do
     ~H"""
     <button class="amatic-sc-bold button" type={@type} {@rest}>
-      <%= render_slot(@inner_block) %>
+      {render_slot(@inner_block)}
     </button>
     """
   end
@@ -219,33 +219,33 @@ defmodule NaagmWeb.CoreComponents do
       <label>
         <input type="hidden" name={@name} value="false" />
         <input type="checkbox" id={@id} name={@name} value="true" checked={@checked} {@rest} />
-        <%= @label %>
+        {@label}
       </label>
     </div>
-    <.error :for={msg <- @errors}><%= msg %></.error>
+    <.error :for={msg <- @errors}>{msg}</.error>
     """
   end
 
   def input(%{type: "select"} = assigns) do
     ~H"""
     <div phx-feedback-for={@name} class={["select-wrapper", length(@errors) > 0 && "has-error"]}>
-      <.label for={@id}><%= @label %></.label>
+      <.label for={@id}>{@label}</.label>
       <select id={@id} name={@name} multiple={@multiple} {@rest}>
-        <option :if={@prompt} value=""><%= @prompt %></option>
-        <%= Phoenix.HTML.Form.options_for_select(@options, @value) %>
+        <option :if={@prompt} value="">{@prompt}</option>
+        {Phoenix.HTML.Form.options_for_select(@options, @value)}
       </select>
     </div>
-    <.error :for={msg <- @errors}><%= msg %></.error>
+    <.error :for={msg <- @errors}>{msg}</.error>
     """
   end
 
   def input(%{type: "textarea"} = assigns) do
     ~H"""
     <div phx-feedback-for={@name} class={["textarea-wrapper", length(@errors) > 0 && "has-error"]}>
-      <.label for={@id}><%= @label %></.label>
+      <.label for={@id}>{@label}</.label>
       <textarea id={@id} name={@name} {@rest}><%= Phoenix.HTML.Form.normalize_value("textarea", @value) %></textarea>
     </div>
-    <.error :for={msg <- @errors}><%= msg %></.error>
+    <.error :for={msg <- @errors}>{msg}</.error>
     """
   end
 
@@ -253,7 +253,7 @@ defmodule NaagmWeb.CoreComponents do
   def input(assigns) do
     ~H"""
     <div phx-feedback-for={@name} class={["input-wrapper", length(@errors) > 0 && "has-error"]}>
-      <.label for={@id}><%= @label %></.label>
+      <.label for={@id}>{@label}</.label>
       <input
         type={@type}
         name={@name}
@@ -261,7 +261,7 @@ defmodule NaagmWeb.CoreComponents do
         value={Phoenix.HTML.Form.normalize_value(@type, @value)}
       />
     </div>
-    <.error :for={msg <- @errors}><%= msg %></.error>
+    <.error :for={msg <- @errors}>{msg}</.error>
     """
   end
 
@@ -274,7 +274,7 @@ defmodule NaagmWeb.CoreComponents do
   def label(assigns) do
     ~H"""
     <label for={@for}>
-      <%= render_slot(@inner_block) %>
+      {render_slot(@inner_block)}
     </label>
     """
   end
@@ -288,7 +288,7 @@ defmodule NaagmWeb.CoreComponents do
     ~H"""
     <p class="error">
       <span class="error-icon">❗️</span>
-      <%= render_slot(@inner_block) %>
+      {render_slot(@inner_block)}
     </p>
     """
   end
@@ -318,7 +318,7 @@ defmodule NaagmWeb.CoreComponents do
       assign(assigns, :label, label)
 
     ~H"""
-    <.link navigate={"/" <> @path}><%= @label %></.link>
+    <.link navigate={"/" <> @path}>{@label}</.link>
     """
   end
 

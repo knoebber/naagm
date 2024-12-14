@@ -55,7 +55,7 @@ defmodule NaagmWeb.AboutLive do
           }
           href={"##{anchor}"}
         >
-          <%= label %>
+          {label}
         </.link>
       </nav>
       <section id="overview">
@@ -174,15 +174,15 @@ defmodule NaagmWeb.AboutLive do
         <h2>What to do</h2>
         <ul>
           <li :for={activity <- activities()}>
-            <%= activity %>
+            {activity}
           </li>
         </ul>
       </section>
       <section id="faq">
         <h2>FAQ</h2>
         <div :for={{question, answer} <- faq()}>
-          <h3><%= question %></h3>
-          <p><%= answer %></p>
+          <h3>{question}</h3>
+          <p>{answer}</p>
         </div>
       </section>
     </div>

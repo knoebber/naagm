@@ -118,7 +118,7 @@ defmodule NaagmWeb.RSVPForm do
                   {"No", "#{member_id}-no", "false", member.is_coming === false}
                 ]
               }>
-                <label for={input_id}><%= label %></label>
+                <label for={input_id}>{label}</label>
                 <input
                   checked={checked?}
                   type="radio"

@@ -62,19 +62,19 @@ defmodule NaagmWeb.ShowRSVPLive do
           Party:
           <ol>
             <li :for={member <- @guest.parsed_party}>
-              <span><%= member.full_name %> -</span> <span :if={member.is_coming}>yes</span>
+              <span>{member.full_name} -</span> <span :if={member.is_coming}>yes</span>
               <span :if={not member.is_coming}>no</span>
             </li>
           </ol>
         </div>
         <div :if={@guest.food_restriction != ""}>
-          Food Restrictions: <span><%= @guest.food_restriction %></span>
+          Food Restrictions: <span>{@guest.food_restriction}</span>
         </div>
         <div :if={@guest.housing_preference != ""}>
-          Interested in camping on-site? <span><%= @guest.housing_preference %></span>
+          Interested in camping on-site? <span>{@guest.housing_preference}</span>
         </div>
         <div :if={@guest.notes != ""}>
-          Notes: <span><%= @guest.notes %></span>
+          Notes: <span>{@guest.notes}</span>
         </div>
         <.link patch={~p"/rsvp/#{@guest.uuid}/edit"}>✏️ edit</.link>
       </section>

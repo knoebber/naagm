@@ -86,9 +86,9 @@ defmodule NaagmWeb.UploadLive do
           <article class="upload-entry">
             <figure>
               <.live_img_preview entry={entry} />
-              <figcaption><%= entry.client_name %></figcaption>
+              <figcaption>{entry.client_name}</figcaption>
             </figure>
-            <progress value={entry.progress} max="100"><%= entry.progress %>%</progress>
+            <progress value={entry.progress} max="100">{entry.progress}%</progress>
             <button
               type="button"
               phx-click="cancel-upload"
@@ -98,12 +98,12 @@ defmodule NaagmWeb.UploadLive do
               &times;
             </button>
             <%= for err <- upload_errors(@uploads.content, entry) do %>
-              <p class="alert alert-danger"><%= error_to_string(err) %></p>
+              <p class="alert alert-danger">{error_to_string(err)}</p>
             <% end %>
           </article>
         <% end %>
         <%= for err <- upload_errors(@uploads.content) do %>
-          <p class="alert alert-danger"><%= error_to_string(err) %></p>
+          <p class="alert alert-danger">{error_to_string(err)}</p>
         <% end %>
       </section>
     </div>

@@ -124,7 +124,7 @@ defmodule NaagmWeb.PhotosLive do
           class={if(@current_path == path, do: "active", else: "")}
           patch={path}
         >
-          <%= label %>
+          {label}
         </.link>
       </nav>
       <div class="image-grid">
