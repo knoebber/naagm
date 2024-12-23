@@ -1,5 +1,6 @@
 defmodule NaagmWeb.PhotosLive do
   alias Naagm.S3
+  require Logger
   use NaagmWeb, :live_view
 
   defp parse_integer_for_sort(num_string) do
@@ -26,6 +27,10 @@ defmodule NaagmWeb.PhotosLive do
   @impl Phoenix.LiveView
   def handle_params(params, _uri, socket) do
     current_s3_prefix = String.replace_leading(socket.assigns.current_path, "/", "")
+
+    current_s3_prefix =
+      current_s3_prefix <> if String.ends_with?(current_s3_prefix, "/"), do: "", else: "/"
+
     utc_now_ms = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
     seed = Map.get(params, "seed")
 
@@ -97,6 +102,35 @@ defmodule NaagmWeb.PhotosLive do
       |> assign(:next_sort, next_sort)
       |> assign(:paths_to_render, Enum.with_index(paths_to_render, get_loading_style))
       |> assign(:sort_method, sort_method)
+      |> assign(:current_s3_prefix, current_s3_prefix)
+      |> assign(:upload?, S3.can_upload?(socket.assigns.current_user, current_s3_prefix))
+      |> assign(:admin?, Naagm.Accounts.admin?(socket.assigns.current_user))
+    }
+  end
+
+  @impl Phoenix.LiveView
+  def handle_event("delete", %{"path" => path}, socket) do
+    S3.delete_key(path)
+    Logger.info("deleted S3 key #{inspect(path)}")
+
+    {
+      :noreply,
+      socket
+      |> assign(:paths_to_render, Enum.filter(socket.assigns.paths_to_render, &(&1 == path)))
+    }
+  end
+
+  @impl Phoenix.LiveView
+  def handle_info({:upload_success, uploaded_files}, socket) do
+
+    {
+      :noreply,
+      socket
+      |> put_flash(:info, "Uploaded finished!")
+      |> assign(
+        :paths_to_render,
+        Enum.map(uploaded_files, &{&1, "eager"}) ++ socket.assigns.paths_to_render
+      )
     }
   end
 
@@ -127,10 +161,22 @@ defmodule NaagmWeb.PhotosLive do
           {label}
         </.link>
       </nav>
+      <.live_component
+        :if={@upload?}
+        module={NaagmWeb.UploadForm}
+        id="upload-form"
+        prefix={@current_s3_prefix}
+      />
       <div class="image-grid">
         <article :for={{path, loading} <- @paths_to_render} class="image-frame">
           <.image loading={loading} path={path} />
-          <.image_link path={path} />
+          <span>
+            <.image_link path={path} />
+            <.form :if={@admin?} phx-submit="delete" for={%{}}>
+              <.button type="submit">❌</.button>
+              <.input type="hidden" name="path" value={path} />
+            </.form>
+          </span>
         </article>
       </div>
     </section>

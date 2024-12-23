@@ -25,23 +25,10 @@ defmodule NaagmWeb.UploadForm do
   @impl Phoenix.LiveComponent
   def update(assigns, socket) do
     socket = assign(socket, assigns)
-    admin? = Naagm.Accounts.admin?(socket.assigns.current_user)
-    prefixes = S3.prefixes()
-
-    prefix =
-      if admin? do
-        hd(prefixes)
-      else
-        S3.guest_gallery_prefix()
-      end
 
     {
       :ok,
       socket
-      |> assign(:admin?, admin?)
-      |> assign(:prefixes, prefixes)
-      |> assign(:prefix, prefix)
-      |> assign(:uploaded_files, [])
       |> allow_upload(:content,
         accept: ~w(.jpg .jpeg .webp .png),
         max_entries: 10,
@@ -51,25 +38,20 @@ defmodule NaagmWeb.UploadForm do
   end
 
   @impl Phoenix.LiveComponent
-  def handle_event("select-prefix", %{"prefix" => prefix}, socket) do
-    {:noreply, assign(socket, :prefix, prefix)}
-  end
-
-  @impl Phoenix.LiveComponent
   def handle_event("validate", params, socket) do
-    dbg(params)
     {:noreply, assign(socket, :gallery?, params["gallery"] == "true")}
   end
 
   @impl Phoenix.LiveComponent
   def handle_event("save", _params, socket) do
     uploaded_files =
-      consume_uploaded_entries(socket, :uploads, fn entry, _ ->
-        {:ok, Logger.info("Uploaded #{inspect(entry)}")}
+      consume_uploaded_entries(socket, :content, fn entry, _ ->
+        {:ok, entry.fields["key"]}
       end)
 
-    send(self(), {:info_message, "Upload finished"})
-    {:noreply, update(socket, :uploaded_files, &(&1 ++ uploaded_files))}
+    Logger.info("Uploaded #{inspect(uploaded_files)}")
+    send(self(), {:upload_success, uploaded_files})
+    {:noreply, socket}
   end
 
   @impl Phoenix.LiveComponent
@@ -81,9 +63,6 @@ defmodule NaagmWeb.UploadForm do
   def render(assigns) do
     ~H"""
     <div phx-drop-target={@uploads.content.ref} class="container">
-      <.simple_form :if={@admin?} phx-change="select-prefix" for={%{}} phx-target={@myself}>
-        <.input label="Folder" name="prefix" type="select" value={@prefix} options={@prefixes} />
-      </.simple_form>
       <.form
         class="upload-form"
         id="upload-form"
@@ -112,6 +91,7 @@ defmodule NaagmWeb.UploadForm do
               phx-click="cancel-upload"
               phx-value-ref={entry.ref}
               aria-label="cancel"
+              phx-target={@myself}
             >
               &times;
             </button>

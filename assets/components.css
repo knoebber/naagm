@@ -137,6 +137,14 @@ footer div {
     gap: 3px;
 }
 
+.image-grid form {
+    display: inline;
+}
+
+.image-grid button {
+    font-size: 12px;
+}
+
 .image-frame {
     align-content: center;
     background: var(--white);
@@ -273,6 +281,10 @@ p a.button {
 
 .upload-entry img {
     max-height: 500px;
+}
+
+.upload-form {
+    text-align: center;
 }
 
 .upload-form input {

@@ -43,6 +43,12 @@ defmodule Naagm.S3 do
     )
   end
 
+  def delete_key(key) when is_binary(key) do
+    @bucket
+    |> ExAws.S3.delete_object(key)
+    |> ExAws.request!(region: @region)
+  end
+
   def prefixes do
     [
       @gallery_prefix,
@@ -66,6 +72,10 @@ defmodule Naagm.S3 do
   def guest_gallery_prefix, do: @guest_prefix
   def house_gallery_prefix, do: @house_prefix
   def kolby_gallery_prefix, do: @kolby_prefix
+
+  def can_upload?(%Naagm.Accounts.User{} = user, prefix) when is_binary(prefix) do
+    Naagm.Accounts.admin?(user) or prefix == @guest_prefix
+  end
 
   def list_upload_keys(), do: list_keys(@upload_prefix)
   def list_gallery_keys(), do: list_keys(@gallery_prefix)
