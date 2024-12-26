@@ -116,13 +116,17 @@ defmodule NaagmWeb.PhotosLive do
     {
       :noreply,
       socket
-      |> assign(:paths_to_render, Enum.filter(socket.assigns.paths_to_render, &(&1 == path)))
+      |> assign(
+        :paths_to_render,
+        Enum.reject(socket.assigns.paths_to_render, fn {path_to_render, _} ->
+          path_to_render == path
+        end)
+      )
     }
   end
 
   @impl Phoenix.LiveView
   def handle_info({:upload_success, uploaded_files}, socket) do
-
     {
       :noreply,
       socket
