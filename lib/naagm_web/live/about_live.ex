@@ -32,7 +32,7 @@ defmodule NaagmWeb.AboutLive do
       {"Can I bring my dog?",
        "No dogs at the wedding. But if you are staying on site for the whole weekend, you may bring your dog within the rules of Heartwood (well behaved, leashed, etc). If you do, please make arrangements to keep your dog off site during the day and overnight on Saturday."},
       {"Food intolerances and allergies",
-       "Please provide clear instructions with your RSVP, which we will share with our caterer. If your situation is serious or complex, we will likely reach out to you or put you in direct contact with our caterer to make sure nothing gets lost in translation. Reach out with questions! How should I get there? Link to Trip Planning - How to Get There page."},
+       "Please provide clear instructions with your RSVP, which we will share with our caterer. If your situation is serious or complex, we will likely reach out to you or put you in direct contact with our caterer to make sure nothing gets lost in translation. Reach out with questions! "},
       {"I need to edit my RSVP",
        "Please contact us directly and we can help you to update your RSVP."}
     ]
@@ -104,14 +104,42 @@ defmodule NaagmWeb.AboutLive do
       <section id="directions">
         <h2>How to get there</h2>
         <p>
-          Hwy 1 along the Mendocino Coast is a popular road trip destination.
-          If you are traveling, we hope you will make the most of it.
-          From the north, we recommend hugging the coast for a spectacularly scenic drive.
-          From the south, you will likely pass Anderson Valley on Hwy 128, which is also a significant destination for wineries and wine tasting.
-        </p>
-        <p>
           The closest airport is in Santa Rosa (2hr 15 from venue).
           Common alternative options are San Francisco, Oakland, or Sacramento (3hr 30 to 4 hr drives).
+          You will need to either drive or carpool from the airport, there isn't public transportation to the venue.
+        </p>
+        <p>
+          From the airport, put "Heartwood Mendocino" into your phone. It should direct you to an address in Mendocino on Little Lake road.
+          Some sections won't have phone service. If you want, you can write the full directions down below.
+        </p>
+        <p>
+          <strong>From the south (e.g. San Franscisco)</strong>
+          <ol>
+            <li>Drive north on highway 101</li>
+            <li>Take the highway 128 exit in Cloverdale to Mendocino</li>
+            <li>Continue onto highway 1 and drive north until Mendocino</li>
+            <li>Take a right at the stoplight in Mendocino onto Little Lake Road</li>
+            <li>
+              Drive on Little Lake until you see a sign for Heartwood Mendocino and a sign for our wedding!
+            </li>
+            <li>Take a left into the driveway and follow directions to park</li>
+          </ol>
+          This route will take you right by our house in Navarro. Stop by if you'd like!
+        </p>
+        <p>
+          <strong>From the north (e.g. Eugene)</strong>
+          <ol>
+            <li>Drive south on I-5</li>
+            <li>In Grants Pass, turn onto highway 199</li>
+            <li>In Crescent City, drive south on highway 101</li>
+            <li>Take the highway 1 exit in Leggett to Fort Bragg</li>
+            <li>Drive south towards Mendocino</li>
+            <li>Take a left at the stoplight in Mendocino onto Little Lake Road</li>
+            <li>
+              Drive on Little Lake until you see a sign for Heartwood Mendocino and a sign for our wedding!
+            </li>
+            <li>Take a left into the driveway and follow directions to park</li>
+          </ol>
         </p>
         <p>
           Most guests will likely drive their own car to the venue.
@@ -147,10 +175,9 @@ defmodule NaagmWeb.AboutLive do
           And beware, you may be roped into a task or two if you are around during the day.
           Reservations via Hipcamp are not necessary for Thurs-Sun, but we would like to know of your intention to camp for our own planning purposes.
           Let us know directly or with your RSVP.
-        </p>
-
-        <p>
           Extend your stay at Heartwood Mendocino beyond Thurs-Sun by reserving on Hipcamp.
+        </p>
+        <p>
           Immerse yourself in our life: For lengthier stays or more isolation, tent camping is also available at
           <a href="https://www.hipcamp.com/en-US/land/california-south-facing-ridge-with-views-gwz6h29j?adults=1&children=0&srid=baf1b378-e01d-429b-ae78-9261f26f70aa">
             Cosmo’s Camp
@@ -183,6 +210,10 @@ defmodule NaagmWeb.AboutLive do
         <div :for={{question, answer} <- faq()}>
           <h3>{question}</h3>
           <p>{answer}</p>
+        </div>
+        <div>
+          <h3>How should I get there?</h3>
+          <p><a href="#directions">Link to Trip Planning - How to Get There page.</a></p>
         </div>
       </section>
     </div>
