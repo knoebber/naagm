@@ -24,7 +24,6 @@ defmodule NaagmWeb.AboutLive do
 
   defp faq do
     [
-      {"What should I wear?", "Semi-formal with semi-optional pizzazz 🪄✨✨"},
       {"Can I bring my kiddos?",
        "Yes please! We want to see your whole family and we hope this will be a fun event for all! Just be sure to RSVP for your entire group, including kids."},
       {"Do I get a plus one?",
@@ -34,7 +33,7 @@ defmodule NaagmWeb.AboutLive do
       {"Food intolerances and allergies",
        "Please provide clear instructions with your RSVP, which we will share with our caterer. If your situation is serious or complex, we will likely reach out to you or put you in direct contact with our caterer to make sure nothing gets lost in translation. Reach out with questions! "},
       {"I need to edit my RSVP",
-       "Please contact us directly and we can help you to update your RSVP."}
+       "Please contact us directly and we can help you to update your RSVP. Please RSVP by May 21st."}
     ]
   end
 
@@ -61,11 +60,26 @@ defmodule NaagmWeb.AboutLive do
       <section id="overview">
         <h2>Overview 👁️👁️</h2>
         <p class="bold">
-          Our wedding will take place at a family venue amongst the redwoods, a few miles inland from the Mendocino Coast.
-          The wedding itself will take place on Saturday evening, June 21st, 2025.
-          The ceremony will be at 4:30 pm, with a reception to follow. Details to come.
+          Our wedding will take place at a family venue amongst the redwoods,
+          a few miles inland from the Mendocino Coast, on Saturday, June 21st, 2025.
         </p>
-
+        <p>
+        <span class="bold">Schedule of events<br/>
+        Thursday/Sunday</span><br/>
+        Open house at our home in Rancho Navarro<br/>18801 Bald Hills Rd,
+        Navarro, CA 95463<br/>Times to will be posted on website, check back later.
+        </p>
+        <p>
+        <span class="bold">Friday</span><br/>
+        6pm Casual welcome dinner<br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
+        </p>
+        <p>
+        <span class="bold">Saturday</span><br/>
+        The big day!<br/>
+        4pm guest arrival<br/>Ceremony, dinner, and reception to follow.<br/>
+        Attire: semi-formal
+        <br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
+        </p>
         <p class="bold">
           For more information, read on below, or contact us with any questions: <br />
           Anna Thompson --- acthompson211@gmail.com / 541-554-2795
@@ -77,7 +91,7 @@ defmodule NaagmWeb.AboutLive do
         </p>
 
         <p>
-          We  really appreciate our family and friends gathering from far and wide and we are so excited to see you all in one place!
+          We really appreciate our family and friends gathering from far and wide and we are so excited to see you all in one place!
           To that end, we hope to spend additional time with folks visiting from out of town.
           So, share your travel plans with us and check back as the time draws nearer, since we hope to coordinate some additional informal gatherings in the days before the wedding.
           <.link href="#lodging">Camping at the venue</.link>
@@ -165,8 +179,8 @@ defmodule NaagmWeb.AboutLive do
         <h3>Tent Camping</h3>
         <p>
           Immerse yourself in the wedding:
-          <a href="https://www.hipcamp.com/en-US/land/california-heartwood-mendocino-gv1qh7dm/sites/1093760?adults=1&children=0&srid=2392e3ed-69ca-462b-a427-40200bf2c1a3">
-            Complimentary tent camping
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdEVzqLL8WLLTMKfojRO0H7r6da-qhsHm20Phql8HFZNVdz9Q/viewform">
+            Tent camping
           </a>
           is available at Heartwood Mendocino (our venue), and it’s beautiful.
           Guests will share a communal bath house, lawn, and outdoor cooking area.
@@ -207,6 +221,11 @@ defmodule NaagmWeb.AboutLive do
       </section>
       <section id="faq">
         <h2>FAQ</h2>
+        <div>
+          <h3>What I should I wear?</h3>
+          <p>Semi-formal or whatever makes you comfortable. Feel free to have fun with it!</p>
+          <p>Remember that this event is outside in grass and gravel. Avoid high heels or keep them chunky. Bring a layer for an evening outdoors.</p>
+        </div>
         <div :for={{question, answer} <- faq()}>
           <h3>{question}</h3>
           <p>{answer}</p>
