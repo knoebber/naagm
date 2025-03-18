@@ -60,21 +60,20 @@ defmodule NaagmWeb.AboutLive do
       <section id="overview">
         <h2>Overview 👁️👁️</h2>
         <p class="bold">
-          Our wedding will take place at a family venue amongst the redwoods,
-          a few miles inland from the Mendocino Coast, on Saturday, June 21st, 2025.
+          Our wedding will take place at a family venue amongst the redwoods a few miles inland from the Mendocino Coast.
         </p>
         <p>
         <span class="bold">Schedule of events<br/>
         Thursday/Sunday</span><br/>
-        Open house at our home in Rancho Navarro<br/>18801 Bald Hills Rd,
-        Navarro, CA 95463<br/>Times to will be posted on website, check back later.
+        Open house at our home in Rancho Navarro<br/>Times to will be posted here at a later date.
+        <br/>18801 Bald Hills Rd, Navarro, CA 95463
         </p>
         <p>
-        <span class="bold">Friday</span><br/>
-        6pm Casual welcome dinner<br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
+        <span class="bold">Friday, June 20th</span><br/>
+        Casual welcome dinner<br/>6pm<br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
         </p>
         <p>
-        <span class="bold">Saturday</span><br/>
+        <span class="bold">Saturday, June 21st</span><br/>
         The big day!<br/>
         4pm guest arrival<br/>Ceremony, dinner, and reception to follow.<br/>
         Attire: semi-formal
