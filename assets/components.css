@@ -95,7 +95,6 @@ footer div {
     background-color: var(--white);
     padding: 10px;
     max-width: 800px;
-    border: solid 1px var(--blue);
 }
 
 .sub-nav a {
@@ -311,6 +310,11 @@ p a.button {
     padding: 5px;
 }
 
+.about-text {
+    padding: 16px;
+    background: var(--white);
+}
+
 .sun {
     width: 150px;
     height: 150px;
@@ -361,6 +365,23 @@ p a.button {
             );
         transform: rotate(15deg);
         animation: rotate 360s linear;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .about-text {
+        padding: 32px 100px;
+    }
+
+    .wavy-box {
+        --mask:
+        radial-gradient(89.44px at 120px 50%,#000 99%,#0000 101%) 0 calc(50% - 80px)/51% 160px repeat-y,
+        radial-gradient(89.44px at -80px 50%,#0000 99%,#000 101%) 40px 50%/calc(51% - 40px) 160px repeat-y,
+            radial-gradient(89.44px at calc(100% - 120px) 50%,#000 99%,#0000 101%) 100% 50%/51% 160px repeat-y,
+        radial-gradient(89.44px at calc(100% + 80px) 50%,#0000 99%,#000 101%) calc(100% - 40px) calc(50% - 80px)/calc(51% - 40px) 160px repeat-y;
+        -webkit-mask: var(--mask);
+                mask: var(--mask);
     }
 }
 
@@ -436,4 +457,9 @@ p a.button {
         height: 237px;
         width: 237px;
     }
+
+    main {
+        margin: 20px;
+    }
 }
+

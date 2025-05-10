@@ -45,7 +45,7 @@ defmodule NaagmWeb.AboutLive do
         <.link
           :for={
             {label, anchor} <- [
-              {"Overview", "overview"},
+              {"Schedule", "schedule"},
               {"How to get there", "directions"},
               {"Where to stay", "lodging"},
               {"What to do", "activities"},
@@ -57,27 +57,36 @@ defmodule NaagmWeb.AboutLive do
           {label}
         </.link>
       </nav>
-      <section id="overview">
-        <h2>Overview 👁️👁️</h2>
+      <section class="about-text wavy-box" id="schedule">
+        <h2>Schedule 👁️👁️</h2>
         <p class="bold">
           Our wedding will take place at a family venue amongst the redwoods a few miles inland from the Mendocino Coast.
         </p>
         <p>
-        <span class="bold">Schedule of events<br/>
-        Thursday/Sunday</span><br/>
-        Open house at our home in Rancho Navarro<br/>Times to will be posted here at a later date.
+        <span class="bold">
+        Thursday, June 19th</span><br/>
+        3pm-8pm open house at our home in Rancho Navarro
+        <br/>(This is on the way to Mendocino if you are coming from the Bay Area)<br/>
+        Casual light BBQ and snacks.
         <br/>18801 Bald Hills Rd, Navarro, CA 95463
         </p>
         <p>
         <span class="bold">Friday, June 20th</span><br/>
-        Casual welcome dinner<br/>6pm<br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
+        6pm Casual welcome dinner<br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
         </p>
         <p>
         <span class="bold">Saturday, June 21st</span><br/>
         The big day!<br/>
-        4pm guest arrival<br/>Ceremony, dinner, and reception to follow.<br/>
-        Attire: semi-formal
-        <br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
+        4pm guest arrival. Ceremony, dinner, and reception to follow.
+        <br/>Heartwood Mendocino, 40500 Little Lake Rd, Mendocino, CA 95460
+        <br/>Attire: semi-formal
+        <br/>The venue is outdoors, so please be prepared to spend the evening in grass or gravel and mild outdoor temperature fluctuations.
+        </p>
+        <p>
+        <span class="bold">Sunday, June 22nd</span><br/>
+        1pm-4pm open house at our home in Rancho Navarro<br/>
+        Swing by on your way out if you haven't yet had the chance to see our place
+        <br/>18801 Bald Hills Rd, Navarro, CA 95463
         </p>
         <p class="bold">
           For more information, read on below, or contact us with any questions: <br />
@@ -85,19 +94,11 @@ defmodule NaagmWeb.AboutLive do
           <br />Nicolas Knoebber --- knoebber@gmail.com / 641-160-1703
         </p>
 
-        <p>
-          The venue is outdoors, so please be prepared to spend the evening in grass or gravel and mild outdoor temperature fluctuations.
-        </p>
 
         <p>
           We really appreciate our family and friends gathering from far and wide and we are so excited to see you all in one place!
-          To that end, we hope to spend additional time with folks visiting from out of town.
-          So, share your travel plans with us and check back as the time draws nearer, since we hope to coordinate some additional informal gatherings in the days before the wedding.
-          <.link href="#lodging">Camping at the venue</.link>
-          is also available for more unstructured social time.
           Mendocino is truly a special place to visit, so if you have the time,
-          there is plenty to do and see (restaurants, wine, epic coastline, redwoods, state parks, etc.).
-          We outlined some of our favorite destinations later on this page.
+          check out our list of <.link href="activities">recommendations</.link> (restaurants, wine, epic coastline, redwoods, state parks, etc.)
         </p>
         <p>
           <strong>Our venue is Heartwood Mendocino</strong>
@@ -114,7 +115,7 @@ defmodule NaagmWeb.AboutLive do
         </p>
       </section>
 
-      <section id="directions">
+      <section class="about-text wavy-box" id="directions">
         <h2>How to get there</h2>
         <p>
           The closest airport is in Santa Rosa (2hr 15 from venue).
@@ -173,7 +174,7 @@ defmodule NaagmWeb.AboutLive do
         </p>
       </section>
 
-      <section id="lodging">
+      <section class="about-text wavy-box" id="lodging">
         <h2>Where to Stay</h2>
         <h3>Tent Camping</h3>
         <p>
@@ -186,9 +187,9 @@ defmodule NaagmWeb.AboutLive do
           This will be a fun environment for unstructured socialization throughout the weekend.
           Keep in mind that you will be in the thick of the action and there may be noise and disruptions - especially on Saturday night!
           And beware, you may be roped into a task or two if you are around during the day.
-          Reservations via Hipcamp are not necessary for Thurs-Sun, but we would like to know of your intention to camp for our own planning purposes.
+          Reservations via Hipcamp aren't necessary for Friday night and Saturday night, but we would like to know of your intention to camp for our own planning purposes.
           Let us know directly or with your RSVP.
-          Extend your stay at Heartwood Mendocino beyond Thurs-Sun by reserving on Hipcamp.
+          Extend your stay at Heartwood Mendocino beyond Fri-Sun by reserving on Hipcamp.
         </p>
         <p>
           Immerse yourself in our life: For lengthier stays or more isolation, tent camping is also available at
@@ -210,7 +211,7 @@ defmodule NaagmWeb.AboutLive do
           Expand your search to anywhere between Fort Bragg and Little River.
         </p>
       </section>
-      <section id="activities">
+      <section class="about-text wavy-box" id="activities">
         <h2>What to do</h2>
         <ul>
           <li :for={activity <- activities()}>
@@ -218,7 +219,7 @@ defmodule NaagmWeb.AboutLive do
           </li>
         </ul>
       </section>
-      <section id="faq">
+      <section class="about-text wavy-box" id="faq">
         <h2>FAQ</h2>
         <div>
           <h3>What I should I wear?</h3>
