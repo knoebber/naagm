@@ -3,22 +3,24 @@ defmodule NaagmWeb.AboutLive do
 
   defp activities do
     [
-      "Grab an ice cream at Frankies or a coffee at the Waiting Room, and then walk the Mendocino Headlands",
-      "Enjoy panoramic ocean views while eating the duck at the Ledford House (unless you really want to order something else)",
-      "Visit an old growth redwood grove at Montgomery Woods or Hendy Woods (among the tallest trees in the world!)",
-      "Canoe in and out with the tides and the seals on Big River. Outrigger canoe rentals are at Catch-a-Canoe. Other boats can put in on the river side of Big River Beach. Sea cave kayaking is also an option from Van Damme beach, but we haven’t done it before.",
-      "Watch the boats come in and out from Noyo Harbor over fish and chips at Sea Pal, a poke bowl from Princess Seafood, or a cocktail at the Noyo Harbor Inn",
-      "Wine tasting in Anderson Valley - especially at Pennyroyal, where you can go wine and cheese tasting. Cider and beer are also produced in the valley.",
       "Grab an empanada and a coffee from one of the cafes while driving through Boonville. Stop for woodfired pizza at Offspring or a burger at Jumbo's Win Win if you’re looking for a meal.",
-      "Get lost wandering through the gardens, Victorian style buildings, alleyways, and shops of Mendocino village. Maybe you’ll find a chocolate shop or earrings.",
-      "Visit the Point Cabrillo Lighthouse: historic lighthouse north of town with a gorgeous view, tidepools, lighthouse tours, and history and science exhibits",
-      "Pick a hike in one of the zillions of State Parks",
-      "Stake a spot at the beach to watch the waves or throw a frisbee (Big River, Russian Gulch, Jughandle, etc)",
-      "Eat out in Mendocino Village (Goodlife Cafe, MacCallum House, Flo, Luna Trattoria, Cafe Beaujoulais, etc). Reservations are probably necessary.",
+      "Wine tasting in Anderson Valley - especially at Pennyroyal, where you can go wine and cheese tasting. Cider and beer are also produced in the valley.",
+      "Visit an old growth redwood grove at Montgomery Woods or Hendy Woods (among the tallest trees in the world!)",
       "Swimming holes on the Navarro River along 128 or swimming at the Rancho Navarro pool (insider access only (; )!",
+      "Enjoy panoramic ocean views while eating the duck at the Ledford House (unless you really want to order something else)",
+      "Grab an ice cream at Frankies or a coffee at the Waiting Room, and then walk the Mendocino Headlands",
+      "Canoe in and out with the tides and the seals on Big River. Outrigger canoe rentals are at Catch-a-Canoe. Other boats can put in on the river side of Big River Beach. Sea cave kayaking is also an option from Van Damme beach, but we haven’t done it before.",
+      "Get lost wandering through the gardens, Victorian style buildings, alleyways, and shops of Mendocino village. Maybe you’ll find a chocolate shop or some new earrings.",
+      "Eat out in Mendocino Village (Goodlife Cafe, MacCallum House, Flo, Luna Trattoria, Cafe Beaujoulais, etc). Reservations are probably necessary.",
+      "Visit the Point Cabrillo Lighthouse: historic lighthouse north of town with a gorgeous view, tidepools, lighthouse tours, and history and science exhibits",
+      "Stake a spot at the beach to watch the waves or throw a frisbee (Big River, Russian Gulch, Jughandle, etc)",
+      "Pick a hike in one of the zillions of State Parks",
+      "Watch the boats come in and out from Noyo Harbor over fish and chips at Sea Pal, a poke bowl from Princess Seafood, or a cocktail at the Noyo Harbor Inn",
+      "Skunk Train: The skunk train uses historic tracks to offer rail bike tours and scenic train rides through the redwoods. They also have a \“secret\” forest bar.",
       "Go on a run with Nick. Fort Bragg coastal trail, Big River haul road, or whatever’s nearby",
       "Babysit Monty 🐶 the dog for the day :) It will be so fun.",
-      "Skunk Train: The skunk train uses historic tracks to offer rail bike tours and scenic train rides through the redwoods. They also have a \“secret\” forest bar."
+      "The prior weekend is the Comptche Fathers Day picnic and the sea urchin festival.",
+      "The following weekend, the Flynn Creek Circus will be in town!"
     ]
   end
 
@@ -58,50 +60,72 @@ defmodule NaagmWeb.AboutLive do
         </.link>
       </nav>
       <section class="about-text wavy-box" id="schedule">
-        <h2>Schedule 👁️👁️</h2>
+        <h2>Schedule</h2>
         <p class="bold">
           Our wedding will take place at a family venue amongst the redwoods a few miles inland from the Mendocino Coast.
         </p>
         <p>
         <span class="bold">
-        Thursday, June 19th</span><br/>
-        3pm-8pm open house at our home in Rancho Navarro
-        <br/>(This is on the way to Mendocino if you are coming from the Bay Area)<br/>
-        Casual light BBQ and snacks.
+        Thursday, June 19th (Juneteenth)</span><br/>
+        3pm-8pm Open house at our home in Rancho Navarro
+        <br/>Casual light BBQ and snacks
+        <br/>(This is on the way to Mendocino if you are coming from the Bay Area)
         <br/>18801 Bald Hills Rd, Navarro, CA 95463
         </p>
         <p>
         <span class="bold">Friday, June 20th</span><br/>
-        6pm Casual welcome dinner<br/>Heartwood Mendocino<br/>40500 Little Lake Rd, Mendocino, CA 95460
+        6pm Casual welcome dinner
+        <br/>Heartwood Mendocino, 40500 Little Lake Rd, Mendocino, CA 95460
         </p>
         <p>
-        <span class="bold">Saturday, June 21st</span><br/>
-        The big day!<br/>
-        4pm guest arrival. Ceremony, dinner, and reception to follow.
-        <br/>Heartwood Mendocino, 40500 Little Lake Rd, Mendocino, CA 95460
+        <span class="bold">Saturday, June 21st (The big day!)</span>
+        <br/> 4pm guest arrival.
+        <br/> Ceremony, dinner, and reception to follow.
         <br/>Attire: semi-formal
         <br/>The venue is outdoors, so please be prepared to spend the evening in grass or gravel and mild outdoor temperature fluctuations.
+        <br/>Heartwood Mendocino, 40500 Little Lake Rd, Mendocino, CA 95460
         </p>
         <p>
         <span class="bold">Sunday, June 22nd</span><br/>
-        1pm-4pm open house at our home in Rancho Navarro<br/>
+        1pm-4pm Open house at our home in Rancho Navarro<br/>
         Swing by on your way out if you haven't yet had the chance to see our place
         <br/>18801 Bald Hills Rd, Navarro, CA 95463
+        </p>
+        <p>
+          We really appreciate our family and friends gathering from far and wide and we are so excited to see you all in one place!
+          Mendocino is truly a special place to visit, so if you have the time,
+          check out our list of <a href="#activities">recommended activities</a> (restaurants, wine, epic coastline, redwoods, state parks, etc.)
         </p>
         <p class="bold">
           For more information, read on below, or contact us with any questions: <br />
           Anna Thompson --- acthompson211@gmail.com / 541-554-2795
           <br />Nicolas Knoebber --- knoebber@gmail.com / 641-160-1703
         </p>
+      </section>
 
-
+      <section class="about-text wavy-box" id="directions">
+        <h2>How to get there</h2>
         <p>
-          We really appreciate our family and friends gathering from far and wide and we are so excited to see you all in one place!
-          Mendocino is truly a special place to visit, so if you have the time,
-          check out our list of <.link href="activities">recommendations</.link> (restaurants, wine, epic coastline, redwoods, state parks, etc.)
+          The closest airport is in Santa Rosa (2hr 15 from venue).
+          Common alternative options are San Francisco, Oakland, or Sacramento (3hr 30 to 4 hr drives).
+          You will need to either drive or carpool from the airport. There is no public transportation to the venue.
         </p>
         <p>
-          <strong>Our venue is Heartwood Mendocino</strong>
+         Make a post to connect with other guests on our carpool page!<br />
+          <.link
+            class="button"
+            target="_blank"
+            href="https://docs.google.com/spreadsheets/d/1HrQxh5-3mfgJT7Wbe1e4NemLivAcLqmXeN-wQ3QOqa4/edit?gid=0#gid=0"
+          >
+            🚗 Carpool Sheet 🚙
+          </.link>
+        </p>
+        <p>
+          From the airport, put "Heartwood Mendocino" into your phone. It should direct you to 40500 Little Lake Rd in Mendocino.
+          Some sections won't have phone service. If you want, you can refer to the full directions down below.
+        </p>
+
+        <p>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84377.38904807776!2d-123.7124695069704!3d39.327289712225976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8081b3e97bce8111%3A0x2c5657768bef1eb1!2sHeartwood%20Mendocino!5e0!3m2!1sen!2sus!4v1730652964898!5m2!1sen!2sus"
             style="width: 100%"
@@ -113,25 +137,12 @@ defmodule NaagmWeb.AboutLive do
           >
           </iframe>
         </p>
-      </section>
-
-      <section class="about-text wavy-box" id="directions">
-        <h2>How to get there</h2>
-        <p>
-          The closest airport is in Santa Rosa (2hr 15 from venue).
-          Common alternative options are San Francisco, Oakland, or Sacramento (3hr 30 to 4 hr drives).
-          You will need to either drive or carpool from the airport, there isn't public transportation to the venue.
-        </p>
-        <p>
-          From the airport, put "Heartwood Mendocino" into your phone. It should direct you to an address in Mendocino on Little Lake road.
-          Some sections won't have phone service. If you want, you can write the full directions down below.
-        </p>
         <p>
           <strong>From the south (e.g. San Franscisco)</strong>
           <ol>
             <li>Drive north on highway 101</li>
-            <li>Take the highway 128 exit in Cloverdale to Mendocino</li>
-            <li>Continue onto highway 1 and drive north until Mendocino</li>
+            <li>In Cloverdale, take the highway 128 exit toward Mendocino (You will drive through Anderson Valley and our house on Hwy 128. Check out our list of local recommendations or stop by to say hi if you have time for a pitsop)</li>
+            <li>At the coast, continue north onto highway 1 until you reach Mendocino</li>
             <li>Take a right at the stoplight in Mendocino onto Little Lake Road</li>
             <li>
               Drive on Little Lake until you see a sign for Heartwood Mendocino and a sign for our wedding!
@@ -146,8 +157,8 @@ defmodule NaagmWeb.AboutLive do
             <li>Drive south on I-5</li>
             <li>In Grants Pass, turn onto highway 199</li>
             <li>In Crescent City, drive south on highway 101</li>
-            <li>Take the highway 1 exit in Leggett to Fort Bragg</li>
-            <li>Drive south towards Mendocino</li>
+            <li>In Leggett, take the highway 1 exit toward Fort Bragg</li>
+            <li>Continue south through Fort Fragg, towards Mendocino</li>
             <li>Take a left at the stoplight in Mendocino onto Little Lake Road</li>
             <li>
               Drive on Little Lake until you see a sign for Heartwood Mendocino and a sign for our wedding!
@@ -161,16 +172,6 @@ defmodule NaagmWeb.AboutLive do
           If you want to avoid driving on the windy road at night, there is plenty of room to camp on site.
           Ride share apps are not available.
           You can try the local taxi service, but cell service at our venue is limited, so it may be prudent to pre-arrange your return trip.
-        </p>
-        <p>
-          Want to carpool? Make a post to connect with other guests on our carpool page!
-          <.link
-            class="button"
-            target="_blank"
-            href="https://docs.google.com/spreadsheets/d/1HrQxh5-3mfgJT7Wbe1e4NemLivAcLqmXeN-wQ3QOqa4/edit?gid=0#gid=0"
-          >
-            🚗 Carpool Sheet 🚙
-          </.link>
         </p>
       </section>
 
@@ -186,8 +187,8 @@ defmodule NaagmWeb.AboutLive do
           Guests will share a communal bath house, lawn, and outdoor cooking area.
           This will be a fun environment for unstructured socialization throughout the weekend.
           Keep in mind that you will be in the thick of the action and there may be noise and disruptions - especially on Saturday night!
-          And beware, you may be roped into a task or two if you are around during the day.
-          Reservations via Hipcamp aren't necessary for Friday night and Saturday night, but we would like to know of your intention to camp for our own planning purposes.
+          And beware, you may be roped into a task or two if you are around during the day.<br />
+          Reservations via Hipcamp aren't necessary for Friday night or Saturday night, but we would like to know of your intention to camp for our own planning purposes.
           Let us know directly or with your RSVP.
           Extend your stay at Heartwood Mendocino beyond Fri-Sun by reserving on Hipcamp.
         </p>
@@ -213,6 +214,7 @@ defmodule NaagmWeb.AboutLive do
       </section>
       <section class="about-text wavy-box" id="activities">
         <h2>What to do</h2>
+        <p>These are recommendations from Anna and Nick, listed roughly in order from south (Anderson Valley) to north (Fort Bragg)</p>
         <ul>
           <li :for={activity <- activities()}>
             {activity}
@@ -232,7 +234,7 @@ defmodule NaagmWeb.AboutLive do
         </div>
         <div>
           <h3>How should I get there?</h3>
-          <p><a href="#directions">Link to Trip Planning - How to Get There page.</a></p>
+          <p><a href="#directions">How to Get There</a></p>
         </div>
       </section>
     </div>

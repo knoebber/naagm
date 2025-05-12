@@ -11,6 +11,23 @@ defmodule NaagmWeb.HomeLive do
           <.image class="portrait" path="uploads/homepage_portrait.JPG" />
         </div>
       </div>
+      <nav class="sub-nav">
+        <.link
+          :for={
+            {label, anchor} <- [
+              {"Schedule", "schedule"},
+              {"How to get there", "directions"},
+              {"Where to stay", "lodging"},
+              {"What to do", "activities"},
+              {"FAQ", "faq"}
+            ]
+          }
+          navigate={~p"/about##{anchor}"}
+        >
+          {label}
+        </.link>
+      </nav>
+
       <.link class="button" navigate={~p"/rsvp"}>RSVP</.link>
       <h2>Please RSVP by May 21st!</h2>
     </section>
