@@ -79,6 +79,7 @@ defmodule NaagmWeb.AboutLive do
         </p>
         <p>
         <span class="bold">Saturday, June 21st (The big day!)</span>
+        <br/> 9am run with Nick at Big River.
         <br/> 4pm guest arrival.
         <br/> Ceremony, dinner, and reception to follow.
         <br/>Attire: semi-formal
