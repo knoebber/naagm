@@ -27,9 +27,6 @@ defmodule NaagmWeb.HomeLive do
           {label}
         </.link>
       </nav>
-
-      <.link class="button" navigate={~p"/rsvp"}>RSVP</.link>
-      <h2>Please RSVP by May 21st!</h2>
     </section>
     """
   end

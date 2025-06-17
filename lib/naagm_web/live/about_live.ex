@@ -67,7 +67,7 @@ defmodule NaagmWeb.AboutLive do
         <p>
         <span class="bold">
         Thursday, June 19th (Juneteenth)</span><br/>
-        3pm-8pm Open house at our home in Rancho Navarro
+        3pm-8pm Open house at our home in Rancho Navarro (<a href="#directions-to-our-house">directions</a>)
         <br/>Casual light BBQ and snacks
         <br/>(This is on the way to Mendocino if you are coming from the Bay Area)
         <br/>18801 Bald Hills Rd, Navarro, CA 95463
@@ -234,8 +234,29 @@ defmodule NaagmWeb.AboutLive do
           <p>{answer}</p>
         </div>
         <div>
-          <h3>How should I get there?</h3>
+        <h3>How do I get to the wedding venue?</h3>
           <p><a href="#directions">How to Get There</a></p>
+        </div>
+        <div id="directions-to-our-house">
+          <h3>How do I get to your house?</h3>
+          <p class="bold">This is not the wedding venue, but it is where we will be hosting the open house on Thursday and Sunday.</p>
+          <p>
+            Google maps is usually pretty reliable for directing people here. We will put out signs once you get to the entrance on Rancho Navarro.
+          </p>
+          <br/>
+          <p>
+            The address is: 18801 Bald Hills Rd, Navarro, CA 95463
+          </p>
+          <br/>
+          <ol>
+            <li>From the south, take  highway 101 to highway 128 (about 30 miles; Turn left/West). Fill up on gas in Cloverdale if you need it.</li>
+            <li>From the north, take highway 1 to highway 128. Fill up on gas in Fort Bragg if you need it.</li>
+            <li>Continue on highway 128 until Flynn Creek Rd. Turn onto Flynn Creek Rd and drive 2.2 miles.</li>
+            <li>Turn right on Appian Way (entrance to Rancho Navarro); go another 2.2 miles.</li>
+            <li>Stay left onto Tramway; continue ~1 mi up a steep hill.</li>
+            <li>Turn Left on Bald Hills Rd (t-intersection...so turn left).</li>
+            <li>Go 1/2 mile...Nick and Anna's on left. There are two driveways, use either depending on parking.</li>
+          </ol>
         </div>
       </section>
     </div>
