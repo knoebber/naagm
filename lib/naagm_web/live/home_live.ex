@@ -5,7 +5,15 @@ defmodule NaagmWeb.HomeLive do
   def render(assigns) do
     ~H"""
     <section class="align-center">
-      <h1 class="amatic-sc-bold huge">Anna and Nicolas are getting married on June 21st, 2025!</h1>
+      <h1 class="amatic-sc-bold huge">Anna and Nicolas got married on June 21st, 2025!</h1>
+      <.link
+        class="button big-button"
+        target="_blank"
+        href="https://kolbywallphotography.pic-time.com/-annanicolas/gallery"
+      >
+        Professional Photos
+      </.link>
+
       <div class="home-wrapper">
         <div class="portrait-wrapper">
           <.image class="portrait" path="uploads/homepage_portrait.JPG" />

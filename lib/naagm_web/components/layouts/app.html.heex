@@ -19,7 +19,7 @@
           class={["amatic-sc-regular", if(@current_path == path, do: "active", else: "")]}
           navigate={path}
         >
-          <%= title %>
+          {title}
         </.link>
         <.link
           :if={Naagm.Accounts.admin?(@current_user)}
@@ -31,15 +31,11 @@
         >
           responses
         </.link>
-        <.link 
-          href={"https://www.myregistry.com/wedding-registry/anna-thompson-and-nicolas-knoebber-navarro-ca/4528824/giftlist"}
-          class="amatic-sc-regular"
-        >Registry</.link>
       </nav>
     </header>
   <% end %>
   <main>
-    <%= @inner_content %>
+    {@inner_content}
 
     <footer :if={assigns[:current_path] != nil and assigns[:current_path] != "/"}>
       <nav>

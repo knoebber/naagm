@@ -157,13 +157,17 @@ defmodule NaagmWeb.PhotosLive do
         <% end %>
       </h1>
       <nav class="sub-nav">
-        <.link
-          :for={{path, label} <- @path_label_tuples}
-          class={if(@current_path == path, do: "active", else: "")}
-          patch={path}
-        >
-          {label}
-        </.link>
+        <%= for {path, label} <- @path_label_tuples do %>
+          <%= if String.ends_with?(path, "kolby/") do %>
+            <.link href="https://kolbywallphotography.pic-time.com/-annanicolas/gallery">
+              {label}
+            </.link>
+          <% else %>
+            <.link class={if(@current_path == path, do: "active", else: "")} patch={path}>
+              {label}
+            </.link>
+          <% end %>
+        <% end %>
       </nav>
       <.live_component
         :if={@upload?}

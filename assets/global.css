@@ -93,6 +93,7 @@ button,
     max-width: 100%;
     display: inline-block;
 }
+
 textarea,
 select,
 input {
@@ -127,4 +128,8 @@ header a {
 
 header a.active {
     color: var(--orange);
+}
+
+.button.big-button {
+    width: 350px;
 }
